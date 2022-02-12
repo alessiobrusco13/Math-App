@@ -1,0 +1,51 @@
+//
+//  Tool.swift
+//  Tool
+//
+//  Created by Alessio Garzia Marotta Brusco on 24/08/2021.
+//
+
+import SwiftUI
+
+struct Tool: Identifiable, Hashable {
+    enum Identifier: String {
+        case linearSystemSolver = "Linear System Solver"
+        case equationSolver = "Equation Solver"
+    }
+
+    let name: String
+    let description: String
+    let icon: String
+    let systemImageName: String?
+    let color: Color
+
+    var id: Identifier { Identifier(rawValue: name)! }
+
+    static let example = allTools[0]
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(description)
+        hasher.combine(icon)
+    }
+}
+
+extension Tool {
+    static let allTools = [
+        Tool(
+            name: "Linear System Solver",
+            description: "Description...",
+            icon: "xy",
+            systemImageName: nil,
+            color: Color("Gold")
+        ),
+
+        Tool(
+            name: "Equation Solver",
+            description: "Description...",
+            icon: "xy",
+            systemImageName: nil,
+            color: Color("Purple")
+        )
+    ]
+}
