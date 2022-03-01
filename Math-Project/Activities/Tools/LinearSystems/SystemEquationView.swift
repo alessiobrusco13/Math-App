@@ -12,7 +12,7 @@ struct SystemEquationView: View {
     @Binding var equation: LinearSystem.Equation
 
     var body: some View {
-        Text(" \(equation.formatted(.x, .y, .z, .n)) ")
+        Text(" \(equation.formatted()) ")
             .font(.equation(size: size))
     }
 

@@ -10,17 +10,17 @@ import SwiftUI
 struct CreateLinearSystemView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @StateObject private var viewModel = ViewModel()
-
+    
     @State private var backShowing = false
     @State private var showingErrorAlert = false
     @State private var showingLinearSystem = false
-
+    
     @FocusState private var focusedEquation: LinearSystem.EquationPosition?
-
+    
     var buttonTitle: LocalizedStringKey {
         withAnimation {
             let createCondition = viewModel.selectedEquation == .third || (viewModel.selectedEquation == .second && viewModel.currentEquationNumber == .two)
-
+            
             if  createCondition {
                 return "Create Linear System"
             } else {
@@ -28,7 +28,7 @@ struct CreateLinearSystemView: View {
             }
         }
     }
-
+    
     var body: some View {
         VStack {
             fields
@@ -50,7 +50,7 @@ struct CreateLinearSystemView: View {
             .padding(.horizontal)
         }
     }
-
+    
     var fields: some View {
         GeometryReader { geometry in
             ZStack(alignment: .center) {
@@ -62,7 +62,7 @@ struct CreateLinearSystemView: View {
                         ? 0
                         : 1
                     )
-
+                
                 CreateSystemEquationView(.second, equation: $viewModel.secondEquation, focused: $focusedEquation)
                     .offset(x: viewModel.selectedEquation == .second ? 0 : offsetAmount(in: geometry))
                     .offset(x: viewModel.selectedEquation == .third ? -offsetAmount(in: geometry)*2 : 0)
@@ -71,7 +71,7 @@ struct CreateLinearSystemView: View {
                         ? 0
                         : 1
                     )
-
+                
                 if viewModel.currentEquationNumber == .three {
                     CreateSystemEquationView(.third, equation: $viewModel.thirdEquation, focused: $focusedEquation)
                         .offset(x: viewModel.selectedEquation == .third ? 0 : offsetAmount(in: geometry)*2)
@@ -86,31 +86,29 @@ struct CreateLinearSystemView: View {
             .frame(maxWidth: .infinity)
         }
     }
-
+    
     var buttons: some View {
         HStack {
             if backShowing {
                 BackButton(action: backAction)
             }
-
+            
             ContinueButton(title: buttonTitle, action: continueAction)
-
+            
         }
         .padding([.bottom, .horizontal])
     }
-
+    
     func equationMenu() -> some ToolbarContent {
         ToolbarItem(placement: .primaryAction) {
-            EquationNumberMenu(equationNumber: $viewModel.currentEquationNumber) { number in
-                withAnimation {
-                    viewModel.changeNumber(to: number)
-                    focusedEquation = viewModel.selectedEquation
-                }
-            }
-            .disabled(showingLinearSystem)
+            EquationNumberMenu(
+                equationNumber: $viewModel.currentEquationNumber,
+                toggleAction: setEquationNumber
+            )
+                .disabled(showingLinearSystem)
         }
     }
-
+    
     func createLinearSystem() {
         do {
             try viewModel.createLinearSystem()
@@ -121,29 +119,36 @@ struct CreateLinearSystemView: View {
             showingErrorAlert.toggle()
         }
     }
-
+    
+    func setEquationNumber(to number: LinearSystem.EquationNumber) {
+        withAnimation {
+            viewModel.changeNumber(to: number)
+            focusedEquation = viewModel.selectedEquation
+        }
+    }
+    
     func backAction() {
         withAnimation(.spring().delay(0.01)) {
             viewModel.goBack()
             toggleButton()
         }
-
+        
         focusedEquation = viewModel.selectedEquation
     }
-
+    
     func continueAction() {
         if viewModel.shouldCreateLinearSystem {
             createLinearSystem()
         }
-
+        
         withAnimation(.spring()) {
             viewModel.switchEquation()
             toggleButton()
         }
-
+        
         focusedEquation = viewModel.selectedEquation
     }
-
+    
     func offsetAmount(in proxy: GeometryProxy) -> CGFloat {
         if horizontalSizeClass == .compact {
             return proxy.size.width * 0.8
@@ -151,7 +156,7 @@ struct CreateLinearSystemView: View {
             return proxy.size.width
         }
     }
-
+    
     func toggleButton() {
         if viewModel.currentEquationNumber == .three {
             if viewModel.selectedEquation == .second || viewModel.selectedEquation == .third {
@@ -164,7 +169,7 @@ struct CreateLinearSystemView: View {
                 return
             }
         }
-
+        
         backShowing = false
     }
 }

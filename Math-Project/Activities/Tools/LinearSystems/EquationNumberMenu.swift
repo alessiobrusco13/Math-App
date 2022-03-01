@@ -13,10 +13,10 @@ struct EquationNumberMenu: View {
 
     var body: some View {
         Menu {
-            Text("Select the number of equations for your linear system.")
+            Text("Select the number of equations for the system.")
                 .layoutPriority(1)
 
-            ForEach(LinearSystem.EquationNumber.allCases, id: \.rawValue) { number in
+            ForEach(LinearSystem.EquationNumber.allCases, id: \.self) { number in
                 Button {
                     toggleAction(number)
                 } label: {

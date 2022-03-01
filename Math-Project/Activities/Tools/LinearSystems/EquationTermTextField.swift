@@ -10,7 +10,7 @@ import SwiftUI
 struct EquationTermTextField: View {
     @ScaledMetric(relativeTo: .title2) var size = 22
 
-    var term: LinearSystem.Equation.Term
+    let term: LinearSystem.Equation.Term
     @Binding var value: Double
 
     @FocusState private var focused: Bool
@@ -59,10 +59,9 @@ struct EquationTermTextField: View {
 
 
     func unfocus() {
-        switch term {
-        case .z, .n:
+        if term == .n {
             value = 0
-        default:
+        } else {
             value = 1
         }
 

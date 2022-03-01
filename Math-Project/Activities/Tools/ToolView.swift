@@ -28,7 +28,7 @@ struct ToolView: View {
             backgroundGradient
 
             VStack(alignment: .leading, spacing: 30) {
-                Text(tool.icon)
+                Text(tool.icon + " ")
                     .font(
                         .system(
                             size: size,

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C0E5A4026DE94C40020A38F /* EquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E5A3F26DE94C40020A38F /* EquationView.swift */; };
+		6C0E5A4026DE94C40020A38F /* SystemEquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */; };
 		6C1F502B26E2898700C3381F /* CreateLinearSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */; };
 		6C1F502D26E289AC00C3381F /* CreateEquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F502C26E289AC00C3381F /* CreateEquationView.swift */; };
 		6C28AB5226FA22A10018E1E5 /* CreateLinearSystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28AB5126FA22A10018E1E5 /* CreateLinearSystemViewModel.swift */; };
@@ -37,7 +37,6 @@
 		6CA40284274ECF5C004501F9 /* ModalSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40283274ECF5C004501F9 /* ModalSheetController.swift */; };
 		6CA40286274ED0FF004501F9 /* ModalSheetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40285274ED0FF004501F9 /* ModalSheetLink.swift */; };
 		6CA40288274ED3C5004501F9 /* UIView-PinToEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40287274ED3C5004501F9 /* UIView-PinToEdges.swift */; };
-		6CA46C5D2771B86B007F863B /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA46C5C2771B86B007F863B /* OrderedSet.swift */; };
 		6CACB8712733D92300DCAFE9 /* SquishableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CACB8702733D92300DCAFE9 /* SquishableButtonStyle.swift */; };
 		6CC9966326DE9CBE00EE9CF7 /* EquationTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9966226DE9CBE00EE9CF7 /* EquationTextFields.swift */; };
 		6CCC576826D7E1F600C02F3E /* SystemSolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCC576726D7E1F600C02F3E /* SystemSolver.swift */; };
@@ -56,7 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6C0E5A3F26DE94C40020A38F /* EquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationView.swift; sourceTree = "<group>"; };
+		6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemEquationView.swift; sourceTree = "<group>"; };
 		6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLinearSystemView.swift; sourceTree = "<group>"; };
 		6C1F502C26E289AC00C3381F /* CreateEquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEquationView.swift; sourceTree = "<group>"; };
 		6C28AB5126FA22A10018E1E5 /* CreateLinearSystemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLinearSystemViewModel.swift; sourceTree = "<group>"; };
@@ -87,7 +86,6 @@
 		6CA40283274ECF5C004501F9 /* ModalSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetController.swift; sourceTree = "<group>"; };
 		6CA40285274ED0FF004501F9 /* ModalSheetLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetLink.swift; sourceTree = "<group>"; };
 		6CA40287274ED3C5004501F9 /* UIView-PinToEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-PinToEdges.swift"; sourceTree = "<group>"; };
-		6CA46C5C2771B86B007F863B /* OrderedSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderedSet.swift; sourceTree = "<group>"; };
 		6CACB8702733D92300DCAFE9 /* SquishableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquishableButtonStyle.swift; sourceTree = "<group>"; };
 		6CC9966226DE9CBE00EE9CF7 /* EquationTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationTextFields.swift; sourceTree = "<group>"; };
 		6CCC576726D7E1F600C02F3E /* SystemSolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSolver.swift; sourceTree = "<group>"; };
@@ -231,14 +229,6 @@
 			path = ModalSheet;
 			sourceTree = "<group>";
 		};
-		6CA46C5B2771B85F007F863B /* DataStructures */ = {
-			isa = PBXGroup;
-			children = (
-				6CA46C5C2771B86B007F863B /* OrderedSet.swift */,
-			);
-			path = DataStructures;
-			sourceTree = "<group>";
-		};
 		6CB9876826DA3E7A008BC9D3 /* LinearSystems */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,7 +247,7 @@
 				6CF4726226D7DE2C00B11ABC /* Equation.swift */,
 				6CCC578226D7E3B700C02F3E /* EquationTermTextField.swift */,
 				6CC9966226DE9CBE00EE9CF7 /* EquationTextFields.swift */,
-				6C0E5A3F26DE94C40020A38F /* EquationView.swift */,
+				6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */,
 			);
 			path = LinearSystems;
 			sourceTree = "<group>";
@@ -265,7 +255,6 @@
 		6CCC578126D7E3A500C02F3E /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6CA46C5B2771B85F007F863B /* DataStructures */,
 				6CCC578326D7E3B700C02F3E /* Brace.swift */,
 				6C40F278272D505F00C1E018 /* Card */,
 				6CA40282274ECF43004501F9 /* ModalSheet */,
@@ -384,7 +373,6 @@
 				6CF4726326D7DE2C00B11ABC /* Equation.swift in Sources */,
 				6CCC578526D7E3B700C02F3E /* EquationTermTextField.swift in Sources */,
 				6CA40288274ED3C5004501F9 /* UIView-PinToEdges.swift in Sources */,
-				6CA46C5D2771B86B007F863B /* OrderedSet.swift in Sources */,
 				6C73CCDD27035DAC000C12DC /* GridToolsView.swift in Sources */,
 				6C73CCDB27035C76000C12DC /* ListToolsView.swift in Sources */,
 				6C6D23E9274E7EE9003E4AAD /* SolveLinearSystemViewModel.swift in Sources */,
@@ -394,7 +382,7 @@
 				6CCC576826D7E1F600C02F3E /* SystemSolver.swift in Sources */,
 				6CF4726526D7DE7100B11ABC /* LinearSystem.swift in Sources */,
 				6C73CCE02703738C000C12DC /* AppTabNavigation.swift in Sources */,
-				6C0E5A4026DE94C40020A38F /* EquationView.swift in Sources */,
+				6C0E5A4026DE94C40020A38F /* SystemEquationView.swift in Sources */,
 				6CCE68CA2786126D004710DC /* UIApplication-Unfocus.swift in Sources */,
 				6C5ACB9327283BAD000A429D /* CardView.swift in Sources */,
 				6CA40284274ECF5C004501F9 /* ModalSheetController.swift in Sources */,
