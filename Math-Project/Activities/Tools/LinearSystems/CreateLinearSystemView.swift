@@ -11,9 +11,10 @@ struct CreateLinearSystemView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @StateObject private var viewModel = ViewModel()
     
-    @State private var backShowing = false
+    @State private var showingBack = false
     @State private var showingErrorAlert = false
     @State private var showingLinearSystem = false
+    @State private var showingSolvePopover = false
     
     @FocusState private var focusedEquation: LinearSystem.EquationPosition?
     
@@ -43,11 +44,9 @@ struct CreateLinearSystemView: View {
         .card(isPresented: $showingLinearSystem) {
             LinearSystemView(linearSystem: viewModel.linearSystem)
         } accessoryView: {
-            ModalSheetLink(label: "Solve", cornerRadius: 30) {
-                SolveLinearSystemView(linearSystem: viewModel.linearSystem)
-            }
-            .frame(maxWidth: 350, maxHeight: 44)
-            .padding(.horizontal)
+            cardButton
+        } onDismiss: {
+            if horizontalSizeClass == .regular { showingSolvePopover = false }
         }
     }
     
@@ -89,7 +88,7 @@ struct CreateLinearSystemView: View {
     
     var buttons: some View {
         HStack {
-            if backShowing {
+            if showingBack {
                 BackButton(action: backAction)
             }
             
@@ -106,6 +105,30 @@ struct CreateLinearSystemView: View {
                 toggleAction: setEquationNumber
             )
                 .disabled(showingLinearSystem)
+        }
+    }
+
+    @ViewBuilder
+    var cardButton: some View {
+        if horizontalSizeClass == .compact {
+            ModalSheetLink(label: "Solve", cornerRadius: 16) {
+                SolveLinearSystemView(linearSystem: viewModel.linearSystem)
+            }
+            .frame(maxWidth: 350, maxHeight: 44)
+            .padding(.horizontal)
+        } else {
+            Button {
+                showingSolvePopover.toggle()
+            } label: {
+                Text("Solve")
+                    .frame(maxWidth: 350)
+            }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.large)
+            .popover(isPresented: $showingSolvePopover) {
+                SolveLinearSystemView(linearSystem: viewModel.linearSystem)
+                    .frame(width: 500, height: 500)
+            }
         }
     }
     
@@ -160,17 +183,17 @@ struct CreateLinearSystemView: View {
     func toggleButton() {
         if viewModel.currentEquationNumber == .three {
             if viewModel.selectedEquation == .second || viewModel.selectedEquation == .third {
-                backShowing = true
+                showingBack = true
                 return
             }
         } else {
             if viewModel.selectedEquation == .second {
-                backShowing = true
+                showingBack = true
                 return
             }
         }
         
-        backShowing = false
+        showingBack = false
     }
 }
 

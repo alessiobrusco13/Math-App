@@ -11,6 +11,7 @@ private struct CardModifier<CardContent: View, AccessoryContent: View>: ViewModi
     @Binding var isPresented: Bool
     let cardContent: () -> CardContent
     let accessoryContent: () -> AccessoryContent
+    let onDismiss: () -> Void
 
     func body(content: Content) -> some View {
         ZStack {
@@ -20,6 +21,7 @@ private struct CardModifier<CardContent: View, AccessoryContent: View>: ViewModi
                     .onTapGesture {
                         withAnimation(.spring()) {
                             isPresented.toggle()
+                            onDismiss()
                         }
                     }
 
@@ -31,10 +33,16 @@ private struct CardModifier<CardContent: View, AccessoryContent: View>: ViewModi
         }
     }
 
-    init(isPresented: Binding<Bool>, @ViewBuilder cardContent: @escaping () -> CardContent, @ViewBuilder accessoryContent: @escaping () -> AccessoryContent) {
+    init(
+        isPresented: Binding<Bool>,
+        @ViewBuilder cardContent: @escaping () -> CardContent,
+        @ViewBuilder accessoryContent: @escaping () -> AccessoryContent,
+        onDismiss: @escaping () -> Void
+    ) {
         self._isPresented = Binding(projectedValue: isPresented)
         self.cardContent = cardContent
         self.accessoryContent = accessoryContent
+        self.onDismiss = onDismiss
     }
 }
 
@@ -42,16 +50,10 @@ extension View {
     func card<CardContent: View, AccessoryContent: View>(
         isPresented: Binding<Bool>,
         @ViewBuilder content: @escaping () -> CardContent,
-        @ViewBuilder accessoryView: @escaping () -> AccessoryContent
+        @ViewBuilder accessoryView: @escaping () -> AccessoryContent = { EmptyView() as! AccessoryContent },
+        onDismiss: @escaping () -> Void = { }
     ) -> some View {
-        modifier(CardModifier(isPresented: isPresented, cardContent: content, accessoryContent: accessoryView))
-    }
-
-    func card<CardContent: View, ButtonContent: View>(
-        isPresented: Binding<Bool>,
-        @ViewBuilder content: @escaping () -> CardContent
-    ) -> some View {
-        modifier(CardModifier(isPresented: isPresented, cardContent: content, accessoryContent: { EmptyView() }))
+        modifier(CardModifier(isPresented: isPresented, cardContent: content, accessoryContent: accessoryView, onDismiss: onDismiss))
     }
 }
 

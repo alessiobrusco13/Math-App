@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SystemSolver {
+enum SystemSolver {
     /// Solves a linear system using the preferred method.
     /// - Parameters:
     ///   - system: The LinearSystem object that will be solved.
