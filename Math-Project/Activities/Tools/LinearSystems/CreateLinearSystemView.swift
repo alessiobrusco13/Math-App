@@ -14,7 +14,7 @@ struct CreateLinearSystemView: View {
     @State private var showingBack = false
     @State private var showingErrorAlert = false
     @State private var showingLinearSystem = false
-    @State private var showingSolvePopover = false
+    @State private var showingInfoPopover = false
     
     @FocusState private var focusedEquation: LinearSystem.EquationPosition?
     
@@ -43,10 +43,12 @@ struct CreateLinearSystemView: View {
         }
         .card(isPresented: $showingLinearSystem) {
             LinearSystemView(linearSystem: viewModel.linearSystem)
+        } topAccessory: {
+            infoButton
         } bottomAccessory: {
             cardButton
         } onDismiss: {
-            if horizontalSizeClass == .regular { showingSolvePopover = false }
+            if horizontalSizeClass == .regular { showingInfoPopover = false }
         }
     }
     
@@ -111,21 +113,46 @@ struct CreateLinearSystemView: View {
     @ViewBuilder
     var cardButton: some View {
         if horizontalSizeClass == .compact {
-            ModalSheetLink(label: "Solve", cornerRadius: 16) {
+            ModalSheetLink(cornerRadius: 16) {
                 SolveLinearSystemView(linearSystem: viewModel.linearSystem)
+            } trigger: {
+                Button {
+
+                } label: {
+                    Text("Solve")
+                        .frame(maxWidth: 350)
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.large)
             }
             .frame(maxWidth: 350, maxHeight: 44)
             .padding(.horizontal)
         } else {
             Button {
-                showingSolvePopover.toggle()
+                showingInfoPopover.toggle()
             } label: {
                 Text("Solve")
                     .frame(maxWidth: 350)
             }
             .buttonStyle(.borderedProminent)
             .controlSize(.large)
-            .popover(isPresented: $showingSolvePopover) {
+
+        }
+    }
+
+    @ViewBuilder
+    var infoButton: some View {
+        if horizontalSizeClass == .compact {
+            ModalSheetLink(cornerRadius: 16) {
+                Text("INFO TAB")
+            } trigger: {
+                InfoButton()
+            }
+        } else {
+            InfoButton {
+                showingInfoPopover.toggle()
+            }
+            .popover(isPresented: $showingInfoPopover) {
                 SolveLinearSystemView(linearSystem: viewModel.linearSystem)
                     .frame(width: 500, height: 500)
             }
