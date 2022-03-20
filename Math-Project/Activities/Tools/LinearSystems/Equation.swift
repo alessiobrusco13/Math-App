@@ -47,9 +47,9 @@ extension LinearSystem {
             let formattedX = formattedTerm(.x, value: xTerm, plusNeeded: false)
             let formattedY = formattedTerm(.y, value: yTerm)
             let formattedZ = formattedTerm(.z, value: zTerm)
-            let formattedN = formattedTerm(.n, value: nTerm, plusNeeded: false)
+            let formattedN = formattedTerm(.n, value: nTerm)
 
-            return formattedX.sign + formattedX.term + formattedY.sign + formattedY.term + formattedZ.sign + formattedZ.term + " = " + formattedN.sign + formattedN.term
+            return formattedX.sign + formattedX.term + formattedY.sign + formattedY.term + formattedZ.sign + formattedZ.term  + formattedN.sign + formattedN.term + " = 0 "
         }
 
         private func formattedTerm(
@@ -62,14 +62,14 @@ extension LinearSystem {
             }
 
             if value == 0 && term == .n {
-                return ("0", " ")
+                return ("", "")
             }
 
             var formattedTerm = ""
             var formattedSign = ""
 
             if abs(value) == 1 {
-                formattedTerm = (term == .n) ? "1" : term.rawValue
+                formattedTerm = (term == .n) ? " 1 " : term.rawValue
             } else {
                 formattedTerm = "\(abs(value).formatted())\((term == .n) ? "" : term.rawValue)"
             }

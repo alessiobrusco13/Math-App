@@ -8,7 +8,7 @@
 import Foundation
 
 extension CreateLinearSystemView {
-    @MainActor class ViewModel: ObservableObject {
+    class ViewModel: ObservableObject {
         @Published var firstEquation = LinearSystem.Equation()
         @Published var secondEquation = LinearSystem.Equation()
         @Published var thirdEquation = LinearSystem.Equation()

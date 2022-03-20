@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct Card<Content: View, AccessoryContent: View>: View {
+struct Card<Content: View, TopAccessoryContent: View, BottomAccessoryContent: View>: View {
     enum AngleDirection {
         case increasing, decreasing
     }
 
     @ViewBuilder let content: () -> Content
-    @ViewBuilder let accessory: () -> AccessoryContent
+    @ViewBuilder let topAccessory: () -> TopAccessoryContent
+    @ViewBuilder let bottomAccessory: () -> BottomAccessoryContent
 
     @State private var angleOffset = 0.0
     @State private var angleDirection = AngleDirection.increasing
@@ -26,6 +27,10 @@ struct Card<Content: View, AccessoryContent: View>: View {
                 .fill(Color.systemBackground)
                 .frame(maxWidth: 300, maxHeight: 300)
                 .shadow(color: .black.opacity(0.3), radius: 25)
+                .overlay(alignment: .topTrailing) {
+                    topAccessory()
+                        .padding()
+                }
 
             content()
                 .foregroundStyle(.primary)
@@ -34,11 +39,11 @@ struct Card<Content: View, AccessoryContent: View>: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .rotation3DEffect(angle, axis: (x: 1, y: 0, z: 0))
         .rotation3DEffect(angle, axis: (x: 0, y: 1, z: 0))
-        .overlay(
-            accessory()
+        .overlay {
+            bottomAccessory()
                 .frame(maxHeight: .infinity, alignment: .bottom)
                 .padding(.bottom)
-        )
+        }
         .onReceive(timer) { _ in
             withAnimation {
                 update()
@@ -62,5 +67,18 @@ struct Card<Content: View, AccessoryContent: View>: View {
         } else {
             angleOffset -= 1
         }
+    }
+}
+
+struct CardTest_Previews: PreviewProvider {
+    static var previews: some View {
+        Card {
+            Text("Hello")
+        } topAccessory: {
+            Text("Top")
+        } bottomAccessory: {
+            Text("Bottom")
+        }
+
     }
 }

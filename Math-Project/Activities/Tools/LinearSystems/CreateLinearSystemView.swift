@@ -43,7 +43,7 @@ struct CreateLinearSystemView: View {
         }
         .card(isPresented: $showingLinearSystem) {
             LinearSystemView(linearSystem: viewModel.linearSystem)
-        } accessoryView: {
+        } bottomAccessory: {
             cardButton
         } onDismiss: {
             if horizontalSizeClass == .regular { showingSolvePopover = false }

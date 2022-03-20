@@ -21,6 +21,14 @@ struct AppTabNavigation: View {
             }
 
             NavigationView {
+                Text("Graphs")
+            }
+            .tag(NavigationTag.graphs)
+            .tabItem {
+                Label("Graphs", systemImage: "chart.line.uptrend.xyaxis")
+            }
+
+            NavigationView {
                 RecentsView()
             }
             .tag(NavigationTag.recents)

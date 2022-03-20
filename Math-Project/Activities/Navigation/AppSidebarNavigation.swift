@@ -30,6 +30,15 @@ struct AppSidebarNavigation: View {
                 }
 
                 NavigationLink(
+                    tag: NavigationTag.graphs,
+                    selection: $selection
+                ) {
+                    Text("Graphs")
+                } label: {
+                     Label("Graphs", systemImage: "chart.line.uptrend.xyaxis")
+                }
+
+                NavigationLink(
                     tag: NavigationTag.recents,
                     selection: $selection,
                     destination: RecentsView.init

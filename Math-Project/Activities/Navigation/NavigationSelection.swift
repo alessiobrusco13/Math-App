@@ -8,5 +8,5 @@
 import Foundation
 
 enum NavigationTag: Hashable {
-    case calculator, tools, recents
+    case calculator, tools, graphs, recents
 }
