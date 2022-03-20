@@ -21,7 +21,7 @@ struct AppTabNavigation: View {
             }
 
             NavigationView {
-                Text("Graphs")
+                GraphView()
             }
             .tag(NavigationTag.graphs)
             .tabItem {

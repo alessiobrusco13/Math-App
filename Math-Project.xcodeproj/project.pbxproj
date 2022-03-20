@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C09D81127E7349A008E4F16 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81027E7349A008E4F16 /* GraphView.swift */; };
+		6C09D81327E735ED008E4F16 /* GraphViewCompact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81227E735ED008E4F16 /* GraphViewCompact.swift */; };
+		6C09D81527E735F6008E4F16 /* GraphViewRegular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81427E735F6008E4F16 /* GraphViewRegular.swift */; };
+		6C09D81727E73840008E4F16 /* Graphable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81627E73840008E4F16 /* Graphable.swift */; };
+		6C09D81927E73C85008E4F16 /* GraphEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81827E73C85008E4F16 /* GraphEquation.swift */; };
+		6C09D81B27E73DF4008E4F16 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81A27E73DF4008E4F16 /* Term.swift */; };
+		6C09D81D27E73E00008E4F16 /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81C27E73E00008E4F16 /* Variable.swift */; };
+		6C09D81F27E73FBE008E4F16 /* Variable-Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D81E27E73FBE008E4F16 /* Variable-Operators.swift */; };
+		6C09D82127E73FDD008E4F16 /* Rational-Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D82027E73FDD008E4F16 /* Rational-Operators.swift */; };
+		6C09D82427E74D36008E4F16 /* Rational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D82327E74D36008E4F16 /* Rational.swift */; };
 		6C0E5A4026DE94C40020A38F /* SystemEquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */; };
 		6C1F502B26E2898700C3381F /* CreateLinearSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */; };
 		6C1F502D26E289AC00C3381F /* CreateEquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F502C26E289AC00C3381F /* CreateEquationView.swift */; };
@@ -56,6 +66,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C09D81027E7349A008E4F16 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		6C09D81227E735ED008E4F16 /* GraphViewCompact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewCompact.swift; sourceTree = "<group>"; };
+		6C09D81427E735F6008E4F16 /* GraphViewRegular.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewRegular.swift; sourceTree = "<group>"; };
+		6C09D81627E73840008E4F16 /* Graphable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graphable.swift; sourceTree = "<group>"; };
+		6C09D81827E73C85008E4F16 /* GraphEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphEquation.swift; sourceTree = "<group>"; };
+		6C09D81A27E73DF4008E4F16 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		6C09D81C27E73E00008E4F16 /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
+		6C09D81E27E73FBE008E4F16 /* Variable-Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Variable-Operators.swift"; sourceTree = "<group>"; };
+		6C09D82027E73FDD008E4F16 /* Rational-Operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rational-Operators.swift"; sourceTree = "<group>"; };
+		6C09D82327E74D36008E4F16 /* Rational.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rational.swift; sourceTree = "<group>"; };
 		6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemEquationView.swift; sourceTree = "<group>"; };
 		6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLinearSystemView.swift; sourceTree = "<group>"; };
 		6C1F502C26E289AC00C3381F /* CreateEquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEquationView.swift; sourceTree = "<group>"; };
@@ -116,9 +136,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C09D82227E73FE4008E4F16 /* Equations */ = {
+			isa = PBXGroup;
+			children = (
+				6C09D81E27E73FBE008E4F16 /* Variable-Operators.swift */,
+				6C09D82027E73FDD008E4F16 /* Rational-Operators.swift */,
+			);
+			path = Equations;
+			sourceTree = "<group>";
+		};
 		6C23A69627E70CD000E5E294 /* Equations */ = {
 			isa = PBXGroup;
 			children = (
+				6C09D81A27E73DF4008E4F16 /* Term.swift */,
+				6C09D81C27E73E00008E4F16 /* Variable.swift */,
+				6C09D82327E74D36008E4F16 /* Rational.swift */,
 			);
 			path = Equations;
 			sourceTree = "<group>";
@@ -126,6 +158,11 @@
 		6C23A69727E70E4E00E5E294 /* Graphs */ = {
 			isa = PBXGroup;
 			children = (
+				6C09D81027E7349A008E4F16 /* GraphView.swift */,
+				6C09D81427E735F6008E4F16 /* GraphViewRegular.swift */,
+				6C09D81227E735ED008E4F16 /* GraphViewCompact.swift */,
+				6C09D81627E73840008E4F16 /* Graphable.swift */,
+				6C09D81827E73C85008E4F16 /* GraphEquation.swift */,
 			);
 			path = Graphs;
 			sourceTree = "<group>";
@@ -206,6 +243,7 @@
 				6C30206026D5520600CA653E /* Bundle-Decodable.swift */,
 				6CA40287274ED3C5004501F9 /* UIView-PinToEdges.swift */,
 				6C317EB02788528E00F97600 /* Font-Equation.swift */,
+				6C09D82227E73FE4008E4F16 /* Equations */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -362,7 +400,9 @@
 			files = (
 				6C30205226D4FA5D00CA653E /* ToolsView.swift in Sources */,
 				6C1F502B26E2898700C3381F /* CreateLinearSystemView.swift in Sources */,
+				6C09D81527E735F6008E4F16 /* GraphViewRegular.swift in Sources */,
 				6CE3514F26FF71BB00911C5B /* ContinueButton.swift in Sources */,
+				6C09D81127E7349A008E4F16 /* GraphView.swift in Sources */,
 				6C1F502D26E289AC00C3381F /* CreateEquationView.swift in Sources */,
 				6C73CCE22703745F000C12DC /* AppSidebarNavigation.swift in Sources */,
 				6C28E8EA26D6E5C200EE575F /* SelectedView.swift in Sources */,
@@ -374,12 +414,16 @@
 				6CE3514B26FF6EA300911C5B /* EquationNumberMenu.swift in Sources */,
 				6C30205426D4FA9100CA653E /* Tool.swift in Sources */,
 				6CCC578626D7E3B700C02F3E /* Brace.swift in Sources */,
+				6C09D81F27E73FBE008E4F16 /* Variable-Operators.swift in Sources */,
 				6C39F7A92737EEA700BA5E6F /* LinearSystemView.swift in Sources */,
 				6CCC577426D7E33400C02F3E /* Binding-OnChange.swift in Sources */,
+				6C09D81B27E73DF4008E4F16 /* Term.swift in Sources */,
+				6C09D82427E74D36008E4F16 /* Rational.swift in Sources */,
 				6C30204226D4F96600CA653E /* Math_ProjectApp.swift in Sources */,
 				6C73CCE4270375B8000C12DC /* NavigationSelection.swift in Sources */,
 				6C40F27C272D554600C1E018 /* CalculatorView.swift in Sources */,
 				6C317EB12788528E00F97600 /* Font-Equation.swift in Sources */,
+				6C09D81927E73C85008E4F16 /* GraphEquation.swift in Sources */,
 				6C40F27E272D57B600C1E018 /* CardModifier.swift in Sources */,
 				6CF4726326D7DE2C00B11ABC /* Equation.swift in Sources */,
 				6CCC578526D7E3B700C02F3E /* EquationTermTextField.swift in Sources */,
@@ -388,7 +432,9 @@
 				6C73CCDB27035C76000C12DC /* ListToolsView.swift in Sources */,
 				6C6D23E9274E7EE9003E4AAD /* SolveLinearSystemViewModel.swift in Sources */,
 				6C30206126D5520600CA653E /* Bundle-Decodable.swift in Sources */,
+				6C09D81727E73840008E4F16 /* Graphable.swift in Sources */,
 				6C28AB5226FA22A10018E1E5 /* CreateLinearSystemViewModel.swift in Sources */,
+				6C09D81327E735ED008E4F16 /* GraphViewCompact.swift in Sources */,
 				6CE3514D26FF70CF00911C5B /* BackButton.swift in Sources */,
 				6CCC576826D7E1F600C02F3E /* SystemSolver.swift in Sources */,
 				6CF4726526D7DE7100B11ABC /* LinearSystem.swift in Sources */,
@@ -397,12 +443,14 @@
 				6CCE68CA2786126D004710DC /* UIApplication-Unfocus.swift in Sources */,
 				6C5ACB9327283BAD000A429D /* CardView.swift in Sources */,
 				6CA40284274ECF5C004501F9 /* ModalSheetController.swift in Sources */,
+				6C09D82127E73FDD008E4F16 /* Rational-Operators.swift in Sources */,
 				6C6D23E7274E7ED4003E4AAD /* SolveLinearSystemView.swift in Sources */,
 				6CC9966326DE9CBE00EE9CF7 /* EquationTextFields.swift in Sources */,
 				6CACB8712733D92300DCAFE9 /* SquishableButtonStyle.swift in Sources */,
 				6C30205C26D5022C00CA653E /* ToolView.swift in Sources */,
 				6C23A69B27E71F2C00E5E294 /* InfoButton.swift in Sources */,
 				6CE3515126FF778600911C5B /* EquationPosition.swift in Sources */,
+				6C09D81D27E73E00008E4F16 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

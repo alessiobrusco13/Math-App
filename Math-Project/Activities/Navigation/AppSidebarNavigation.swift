@@ -31,10 +31,9 @@ struct AppSidebarNavigation: View {
 
                 NavigationLink(
                     tag: NavigationTag.graphs,
-                    selection: $selection
+                    selection: $selection,
+                    destination: GraphView.init
                 ) {
-                    Text("Graphs")
-                } label: {
                      Label("Graphs", systemImage: "chart.line.uptrend.xyaxis")
                 }
 
@@ -49,6 +48,7 @@ struct AppSidebarNavigation: View {
             .listStyle(.sidebar)
             .navigationTitle("App Name")
         }
+        .navigationViewStyle(.columns)
     }
 }
 
