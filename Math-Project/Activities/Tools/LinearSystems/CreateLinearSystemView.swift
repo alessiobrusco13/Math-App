@@ -9,18 +9,24 @@ import SwiftUI
 
 struct CreateLinearSystemView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = ViewModel()
     
     @State private var showingBack = false
     @State private var showingErrorAlert = false
     @State private var showingLinearSystem = false
     @State private var showingInfoPopover = false
+    @State private var showingSolution = false
     
     @FocusState private var focusedEquation: LinearSystem.EquationPosition?
     
     var buttonTitle: LocalizedStringKey {
         withAnimation {
-            let createCondition = viewModel.selectedEquation == .third || (viewModel.selectedEquation == .second && viewModel.currentEquationNumber == .two)
+            let createCondition = viewModel.selectedEquation == .third
+            || (
+                viewModel.selectedEquation == .second
+                && viewModel.currentEquationNumber == .two
+            )
             
             if  createCondition {
                 return "Create Linear System"
@@ -41,12 +47,14 @@ struct CreateLinearSystemView: View {
         .alert("There was an error creating your linear system. Please, try again.", isPresented: $showingErrorAlert) {
             Button("OK") { }
         }
-        .card(isPresented: $showingLinearSystem) {
+        .card(isPresented: $showingLinearSystem, isFlipped: $showingSolution) {
             LinearSystemView(linearSystem: viewModel.linearSystem)
-        } topAccessory: {
+        } back: {
+            SolveLinearSystemView(linearSystem: viewModel.linearSystem)
+        } frontAccessory: {
             infoButton
         } bottomAccessory: {
-            cardButton
+            SolveSystemButton(showingSolution: $showingSolution)
         } onDismiss: {
             if horizontalSizeClass == .regular { showingInfoPopover = false }
         }
@@ -95,7 +103,6 @@ struct CreateLinearSystemView: View {
             }
             
             ContinueButton(title: buttonTitle, action: continueAction)
-            
         }
         .padding([.bottom, .horizontal])
     }
@@ -107,36 +114,6 @@ struct CreateLinearSystemView: View {
                 toggleAction: setEquationNumber
             )
                 .disabled(showingLinearSystem)
-        }
-    }
-
-    @ViewBuilder
-    var cardButton: some View {
-        if horizontalSizeClass == .compact {
-            ModalSheetLink(cornerRadius: 16) {
-                SolveLinearSystemView(linearSystem: viewModel.linearSystem)
-            } trigger: {
-                Button {
-
-                } label: {
-                    Text("Solve")
-                        .frame(maxWidth: 350)
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-            }
-            .frame(maxWidth: 350, maxHeight: 44)
-            .padding(.horizontal)
-        } else {
-            Button {
-                showingInfoPopover.toggle()
-            } label: {
-                Text("Solve")
-                    .frame(maxWidth: 350)
-            }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.large)
-
         }
     }
 

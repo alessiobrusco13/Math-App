@@ -19,7 +19,7 @@
 		6C09D82427E74D36008E4F16 /* Rational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C09D82327E74D36008E4F16 /* Rational.swift */; };
 		6C0E5A4026DE94C40020A38F /* SystemEquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */; };
 		6C1F502B26E2898700C3381F /* CreateLinearSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */; };
-		6C1F502D26E289AC00C3381F /* CreateEquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F502C26E289AC00C3381F /* CreateEquationView.swift */; };
+		6C1F502D26E289AC00C3381F /* CreateSystemEquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1F502C26E289AC00C3381F /* CreateSystemEquationView.swift */; };
 		6C23A69B27E71F2C00E5E294 /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23A69A27E71F2C00E5E294 /* InfoButton.swift */; };
 		6C28AB5226FA22A10018E1E5 /* CreateLinearSystemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28AB5126FA22A10018E1E5 /* CreateLinearSystemViewModel.swift */; };
 		6C28E8EA26D6E5C200EE575F /* SelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C28E8E926D6E5C200EE575F /* SelectedView.swift */; };
@@ -45,6 +45,10 @@
 		6C73CCE02703738C000C12DC /* AppTabNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73CCDF2703738C000C12DC /* AppTabNavigation.swift */; };
 		6C73CCE22703745F000C12DC /* AppSidebarNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73CCE12703745F000C12DC /* AppSidebarNavigation.swift */; };
 		6C73CCE4270375B8000C12DC /* NavigationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73CCE3270375B8000C12DC /* NavigationSelection.swift */; };
+		6C7F5A2827EA116900DC3AF7 /* Int-RationalInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F5A2727EA116900DC3AF7 /* Int-RationalInit.swift */; };
+		6C94339B27EF8868002A8472 /* Animation-Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339A27EF8868002A8472 /* Animation-Card.swift */; };
+		6C94339D27EF8E37002A8472 /* SolveSystemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339C27EF8E37002A8472 /* SolveSystemButton.swift */; };
+		6C94339F27EF93B1002A8472 /* FormatStyle-Coefficient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339E27EF93B1002A8472 /* FormatStyle-Coefficient.swift */; };
 		6CA40284274ECF5C004501F9 /* ModalSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40283274ECF5C004501F9 /* ModalSheetController.swift */; };
 		6CA40286274ED0FF004501F9 /* ModalSheetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40285274ED0FF004501F9 /* ModalSheetLink.swift */; };
 		6CA40288274ED3C5004501F9 /* UIView-PinToEdges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40287274ED3C5004501F9 /* UIView-PinToEdges.swift */; };
@@ -78,7 +82,7 @@
 		6C09D82327E74D36008E4F16 /* Rational.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rational.swift; sourceTree = "<group>"; };
 		6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemEquationView.swift; sourceTree = "<group>"; };
 		6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLinearSystemView.swift; sourceTree = "<group>"; };
-		6C1F502C26E289AC00C3381F /* CreateEquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEquationView.swift; sourceTree = "<group>"; };
+		6C1F502C26E289AC00C3381F /* CreateSystemEquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSystemEquationView.swift; sourceTree = "<group>"; };
 		6C23A69A27E71F2C00E5E294 /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		6C28AB5126FA22A10018E1E5 /* CreateLinearSystemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLinearSystemViewModel.swift; sourceTree = "<group>"; };
 		6C28E8E926D6E5C200EE575F /* SelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,10 @@
 		6C73CCDF2703738C000C12DC /* AppTabNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabNavigation.swift; sourceTree = "<group>"; };
 		6C73CCE12703745F000C12DC /* AppSidebarNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSidebarNavigation.swift; sourceTree = "<group>"; };
 		6C73CCE3270375B8000C12DC /* NavigationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSelection.swift; sourceTree = "<group>"; };
+		6C7F5A2727EA116900DC3AF7 /* Int-RationalInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int-RationalInit.swift"; sourceTree = "<group>"; };
+		6C94339A27EF8868002A8472 /* Animation-Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation-Card.swift"; sourceTree = "<group>"; };
+		6C94339C27EF8E37002A8472 /* SolveSystemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveSystemButton.swift; sourceTree = "<group>"; };
+		6C94339E27EF93B1002A8472 /* FormatStyle-Coefficient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormatStyle-Coefficient.swift"; sourceTree = "<group>"; };
 		6CA40283274ECF5C004501F9 /* ModalSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetController.swift; sourceTree = "<group>"; };
 		6CA40285274ED0FF004501F9 /* ModalSheetLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetLink.swift; sourceTree = "<group>"; };
 		6CA40287274ED3C5004501F9 /* UIView-PinToEdges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView-PinToEdges.swift"; sourceTree = "<group>"; };
@@ -141,6 +149,7 @@
 			children = (
 				6C09D81E27E73FBE008E4F16 /* Variable-Operators.swift */,
 				6C09D82027E73FDD008E4F16 /* Rational-Operators.swift */,
+				6C7F5A2727EA116900DC3AF7 /* Int-RationalInit.swift */,
 			);
 			path = Equations;
 			sourceTree = "<group>";
@@ -237,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				6CCE68C92786126D004710DC /* UIApplication-Unfocus.swift */,
+				6C94339E27EF93B1002A8472 /* FormatStyle-Coefficient.swift */,
 				6CCC576D26D7E33400C02F3E /* Binding-OnChange.swift */,
 				6CCC576F26D7E33400C02F3E /* Color-SemanticColors.swift */,
 				6C30205E26D502EE00CA653E /* LinearGradient-ColorInitializer.swift */,
@@ -244,6 +254,7 @@
 				6CA40287274ED3C5004501F9 /* UIView-PinToEdges.swift */,
 				6C317EB02788528E00F97600 /* Font-Equation.swift */,
 				6C09D82227E73FE4008E4F16 /* Equations */,
+				6C94339A27EF8868002A8472 /* Animation-Card.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,7 +301,8 @@
 				6CE3514C26FF70CF00911C5B /* BackButton.swift */,
 				6C23A69A27E71F2C00E5E294 /* InfoButton.swift */,
 				6CE3514E26FF71BB00911C5B /* ContinueButton.swift */,
-				6C1F502C26E289AC00C3381F /* CreateEquationView.swift */,
+				6C94339C27EF8E37002A8472 /* SolveSystemButton.swift */,
+				6C1F502C26E289AC00C3381F /* CreateSystemEquationView.swift */,
 				6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */,
 				6C28AB5126FA22A10018E1E5 /* CreateLinearSystemViewModel.swift */,
 				6CE3514A26FF6EA300911C5B /* EquationNumberMenu.swift */,
@@ -343,6 +355,8 @@
 			dependencies = (
 			);
 			name = "Math-Project";
+			packageProductDependencies = (
+			);
 			productName = "Math-Project";
 			productReference = 6C30203E26D4F96600CA653E /* Math-Project.app */;
 			productType = "com.apple.product-type.application";
@@ -371,6 +385,8 @@
 				Base,
 			);
 			mainGroup = 6C30203526D4F96600CA653E;
+			packageReferences = (
+			);
 			productRefGroup = 6C30203F26D4F96600CA653E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -403,13 +419,14 @@
 				6C09D81527E735F6008E4F16 /* GraphViewRegular.swift in Sources */,
 				6CE3514F26FF71BB00911C5B /* ContinueButton.swift in Sources */,
 				6C09D81127E7349A008E4F16 /* GraphView.swift in Sources */,
-				6C1F502D26E289AC00C3381F /* CreateEquationView.swift in Sources */,
+				6C1F502D26E289AC00C3381F /* CreateSystemEquationView.swift in Sources */,
 				6C73CCE22703745F000C12DC /* AppSidebarNavigation.swift in Sources */,
 				6C28E8EA26D6E5C200EE575F /* SelectedView.swift in Sources */,
 				6C30204426D4F96600CA653E /* ContentView.swift in Sources */,
 				6C30205F26D502EE00CA653E /* LinearGradient-ColorInitializer.swift in Sources */,
 				6CA40286274ED0FF004501F9 /* ModalSheetLink.swift in Sources */,
 				6CF4725F26D7D8BC00B11ABC /* RecentsView.swift in Sources */,
+				6C94339D27EF8E37002A8472 /* SolveSystemButton.swift in Sources */,
 				6CCC577626D7E33400C02F3E /* Color-SemanticColors.swift in Sources */,
 				6CE3514B26FF6EA300911C5B /* EquationNumberMenu.swift in Sources */,
 				6C30205426D4FA9100CA653E /* Tool.swift in Sources */,
@@ -418,9 +435,11 @@
 				6C39F7A92737EEA700BA5E6F /* LinearSystemView.swift in Sources */,
 				6CCC577426D7E33400C02F3E /* Binding-OnChange.swift in Sources */,
 				6C09D81B27E73DF4008E4F16 /* Term.swift in Sources */,
+				6C94339B27EF8868002A8472 /* Animation-Card.swift in Sources */,
 				6C09D82427E74D36008E4F16 /* Rational.swift in Sources */,
 				6C30204226D4F96600CA653E /* Math_ProjectApp.swift in Sources */,
 				6C73CCE4270375B8000C12DC /* NavigationSelection.swift in Sources */,
+				6C94339F27EF93B1002A8472 /* FormatStyle-Coefficient.swift in Sources */,
 				6C40F27C272D554600C1E018 /* CalculatorView.swift in Sources */,
 				6C317EB12788528E00F97600 /* Font-Equation.swift in Sources */,
 				6C09D81927E73C85008E4F16 /* GraphEquation.swift in Sources */,
@@ -443,6 +462,7 @@
 				6CCE68CA2786126D004710DC /* UIApplication-Unfocus.swift in Sources */,
 				6C5ACB9327283BAD000A429D /* CardView.swift in Sources */,
 				6CA40284274ECF5C004501F9 /* ModalSheetController.swift in Sources */,
+				6C7F5A2827EA116900DC3AF7 /* Int-RationalInit.swift in Sources */,
 				6C09D82127E73FDD008E4F16 /* Rational-Operators.swift in Sources */,
 				6C6D23E7274E7ED4003E4AAD /* SolveLinearSystemView.swift in Sources */,
 				6CC9966326DE9CBE00EE9CF7 /* EquationTextFields.swift in Sources */,

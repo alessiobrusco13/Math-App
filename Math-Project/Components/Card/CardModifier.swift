@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-private struct CardModifier<CardContent: View, TopAccessoryContent: View, BottomAccessoryContent: View>: ViewModifier {
+private struct CardModifier<Front: View, Back: View, FrontAccessory: View, BottomAccessory: View>: ViewModifier {
     @Binding var isPresented: Bool
-    let cardContent: () -> CardContent
-    let topAccessoryContent: () -> TopAccessoryContent
-    let bottomAccessoryContent: () -> BottomAccessoryContent
+    @Binding var isFlipped: Bool
+
+    let front: () -> Front
+    let back: () -> Back
+    let frontAccessory: () -> FrontAccessory
+    let bottomAccessory: () -> BottomAccessory
     let onDismiss: () -> Void
 
     func body(content: Content) -> some View {
@@ -24,12 +27,18 @@ private struct CardModifier<CardContent: View, TopAccessoryContent: View, Bottom
                             isPresented.toggle()
                             onDismiss()
                         }
+
+                        withAnimation(.card) {
+                            isFlipped.toggle()
+                        }
                     }
 
                 Card(
-                    content: cardContent,
-                    topAccessory: topAccessoryContent,
-                    bottomAccessory: bottomAccessoryContent
+                    isFlipped: $isFlipped,
+                    front: front,
+                    back: back,
+                    frontAccessory: frontAccessory,
+                    bottomAccessory: bottomAccessory
                 )
                 .transition(.move(edge: .bottom))
             } else {
@@ -40,75 +49,95 @@ private struct CardModifier<CardContent: View, TopAccessoryContent: View, Bottom
 
     init(
         isPresented: Binding<Bool>,
-        @ViewBuilder cardContent: @escaping () -> CardContent,
-        @ViewBuilder topAccessory: @escaping () -> TopAccessoryContent,
-        @ViewBuilder bottomAccessory: @escaping () -> BottomAccessoryContent,
+        isFlipped: Binding<Bool>,
+        @ViewBuilder front: @escaping () -> Front,
+        @ViewBuilder back: @escaping () -> Back,
+        @ViewBuilder frontAccessory: @escaping () -> FrontAccessory,
+        @ViewBuilder bottomAccessory: @escaping () -> BottomAccessory,
         onDismiss: @escaping () -> Void
     ) {
         self._isPresented = Binding(projectedValue: isPresented)
-        self.cardContent = cardContent
-        self.topAccessoryContent = topAccessory
-        self.bottomAccessoryContent = bottomAccessory
+        self._isFlipped = isFlipped
+        self.front = front
+        self.back = back
+        self.frontAccessory = frontAccessory
+        self.bottomAccessory = bottomAccessory
         self.onDismiss = onDismiss
     }
 }
 
 extension View {
-    func card<CardContent: View, TopAccessoryContent: View, BottomAccessoryContent: View>(
+    func card<Front: View, Back: View, FrontAccessory: View, BottomAccessoryContent: View>(
         isPresented: Binding<Bool>,
-        @ViewBuilder content: @escaping () -> CardContent,
-        @ViewBuilder topAccessory: @escaping () -> TopAccessoryContent,
+        isFlipped: Binding<Bool>,
+        @ViewBuilder front: @escaping () -> Front,
+        @ViewBuilder back: @escaping () -> Back,
+        @ViewBuilder frontAccessory: @escaping () -> FrontAccessory,
         @ViewBuilder bottomAccessory: @escaping () -> BottomAccessoryContent,
         onDismiss: @escaping () -> Void = { }
     ) -> some View {
         modifier(CardModifier(
             isPresented: isPresented,
-            cardContent: content,
-            topAccessory: topAccessory,
+            isFlipped: isFlipped,
+            front: front,
+            back: back,
+            frontAccessory: frontAccessory,
             bottomAccessory: bottomAccessory,
             onDismiss: onDismiss
         ))
     }
 
-    func card<CardContent: View, TopAccessoryContent: View>(
+    func card<Front: View, Back: View, FrontAccessory: View>(
         isPresented: Binding<Bool>,
-        @ViewBuilder content: @escaping () -> CardContent,
-        @ViewBuilder topAccessory: @escaping () -> TopAccessoryContent,
+        isFlipped: Binding<Bool>,
+        @ViewBuilder front: @escaping () -> Front,
+        @ViewBuilder back: @escaping () -> Back,
+        @ViewBuilder frontAccessory: @escaping () -> FrontAccessory,
         onDismiss: @escaping () -> Void = { }
     ) -> some View {
         modifier(CardModifier(
             isPresented: isPresented,
-            cardContent: content,
-            topAccessory: topAccessory,
+            isFlipped: isFlipped,
+            front: front,
+            back: back,
+            frontAccessory: frontAccessory,
             bottomAccessory: { EmptyView() },
             onDismiss: onDismiss
         ))
     }
 
-    func card<CardContent: View, BottomAccessoryContent: View>(
+    func card<Front: View, Back: View, BottomAccessory: View>(
         isPresented: Binding<Bool>,
-        @ViewBuilder content: @escaping () -> CardContent,
-        @ViewBuilder bottomAccessory: @escaping () -> BottomAccessoryContent,
+        isFlipped: Binding<Bool>,
+        @ViewBuilder front: @escaping () -> Front,
+        @ViewBuilder back: @escaping () -> Back,
+        @ViewBuilder bottomAccessory: @escaping () -> BottomAccessory,
         onDismiss: @escaping () -> Void = { }
     ) -> some View {
         modifier(CardModifier(
             isPresented: isPresented,
-            cardContent: content,
-            topAccessory: { EmptyView() },
+            isFlipped: isFlipped,
+            front: front,
+            back: back,
+            frontAccessory: { EmptyView() },
             bottomAccessory: bottomAccessory,
             onDismiss: onDismiss
         ))
     }
 
-    func card<CardContent: View>(
+    func card<Front: View, Back: View>(
         isPresented: Binding<Bool>,
-        @ViewBuilder content: @escaping () -> CardContent,
+        isFlipped: Binding<Bool>,
+        @ViewBuilder front: @escaping () -> Front,
+        @ViewBuilder back: @escaping () -> Back,
         onDismiss: @escaping () -> Void = { }
     ) -> some View {
         modifier(CardModifier(
             isPresented: isPresented,
-            cardContent: content,
-            topAccessory: { EmptyView() },
+            isFlipped: isFlipped,
+            front: front,
+            back: back,
+            frontAccessory: { EmptyView() },
             bottomAccessory: { EmptyView() },
             onDismiss: onDismiss
         ))
@@ -118,6 +147,7 @@ extension View {
 
 private struct ModifierTestView: View {
     @State private var showingCard = false
+    @State private var cardFlipped = false
 
     var body: some View {
         ZStack {
@@ -131,9 +161,11 @@ private struct ModifierTestView: View {
                 }
             }
         }
-        .card(isPresented: $showingCard) {
+        .card(isPresented: $showingCard, isFlipped: $cardFlipped) {
             Text("Test")
-        } topAccessory: {
+        } back: {
+            Text("HEllo")
+        } frontAccessory: {
             Button {
 
             } label: {
@@ -142,7 +174,11 @@ private struct ModifierTestView: View {
                     .font(.title3)
             }
         } bottomAccessory: {
-            Text("Hello")
+            Button("Hello") {
+                withAnimation(.card) {
+                    cardFlipped.toggle()
+                }
+            }
         }
     }
 }

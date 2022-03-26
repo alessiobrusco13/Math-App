@@ -8,12 +8,11 @@
 import SwiftUI
 
 struct SystemEquationView: View {
-    @ScaledMetric(relativeTo: .title) var size = 28
     @Binding var equation: LinearSystem.Equation
 
     var body: some View {
         Text(" \(equation.formatted()) ")
-            .font(.equation(size: size))
+            .font(.equation)
     }
 
     init(equation: Binding<LinearSystem.Equation>) {

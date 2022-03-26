@@ -18,14 +18,6 @@ struct Variable {
     let type: VariableType
     let exponent: Rational
 
-    var string: String {
-        if exponent.denominator == 1 {
-            return type.string
-        } else {
-            return "\(type.string)^\(exponent.string)"
-        }
-    }
-
     static let x = Variable(type: .x, exponent: 1)
     static let y = Variable(type: .y, exponent: 1)
 

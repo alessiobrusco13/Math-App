@@ -24,7 +24,7 @@ struct LinearSystemView: View {
                     SystemEquationView(equation: thirdEquation)
                 }
             }
-            .offset(x: -20)
+            .offset(x: -15)
         }
         .onAppear {
             UIApplication.shared.unfocus()

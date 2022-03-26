@@ -71,7 +71,7 @@ extension LinearSystem {
             if abs(value) == 1 {
                 formattedTerm = (term == .n) ? " 1 " : term.rawValue
             } else {
-                formattedTerm = "\(abs(value).formatted())\((term == .n) ? "" : term.rawValue)"
+                formattedTerm = "\(abs(value).formatted(.coefficient))\((term == .n) ? "" : term.rawValue)"
             }
 
             if value < 0 {

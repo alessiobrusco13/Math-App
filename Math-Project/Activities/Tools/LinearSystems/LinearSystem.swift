@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-/// A value  type representing a linear system of first or second grade.
+/// A value type representing a linear system of first or second grade.
 struct LinearSystem {
 
     /// A tuple with equations contained in a linear system.

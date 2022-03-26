@@ -7,78 +7,91 @@
 
 import SwiftUI
 
-struct Card<Content: View, TopAccessoryContent: View, BottomAccessoryContent: View>: View {
-    enum AngleDirection {
-        case increasing, decreasing
-    }
+struct Card<Front: View, Back: View, FrontAccessory: View, ButtomAccessory: View>: View {
+    @Binding var isFlipped: Bool
 
-    @ViewBuilder let content: () -> Content
-    @ViewBuilder let topAccessory: () -> TopAccessoryContent
-    @ViewBuilder let bottomAccessory: () -> BottomAccessoryContent
+    @ViewBuilder let front: () -> Front
+    @ViewBuilder let back: () -> Back
+    @ViewBuilder let frontAccessory: () -> FrontAccessory
+    @ViewBuilder let bottomAccessory: () -> ButtomAccessory
 
-    @State private var angleOffset = 0.0
-    @State private var angleDirection = AngleDirection.increasing
-
-    let timer = Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()
+    @Environment(\.horizontalSizeClass) private var sizeClass
 
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 25)
-                .fill(Color.systemBackground)
-                .frame(maxWidth: 300, maxHeight: 300)
-                .shadow(color: .black.opacity(0.3), radius: 25)
-                .overlay(alignment: .topTrailing) {
-                    topAccessory()
-                        .padding()
-                }
+        GeometryReader { geo in
+            ZStack {
+                front()
+                    .background(frontBackground(geo: geo))
+                    .rotation3DEffect(.degrees(isFlipped ? 180 : 0), axis: (x: 0.0, y: 1.0, z: 0.0))
+                    .opacity(isFlipped ? 0 : 1)
+                    .accessibility(hidden: isFlipped)
 
-            content()
-                .foregroundStyle(.primary)
-        }
-        .hoverEffect(.lift)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .rotation3DEffect(angle, axis: (x: 1, y: 0, z: 0))
-        .rotation3DEffect(angle, axis: (x: 0, y: 1, z: 0))
-        .overlay {
-            bottomAccessory()
-                .frame(maxHeight: .infinity, alignment: .bottom)
-                .padding(.bottom)
-        }
-        .onReceive(timer) { _ in
-            withAnimation {
-                update()
+                back()
+                    .background(background(geo: geo))
+                    .rotation3DEffect(.degrees(isFlipped ? 0 : -180), axis: (x: 0.0, y: 1.0, z: 0.0))
+                    .opacity(isFlipped ? 1 : -1)
+                    .accessibility(hidden: !isFlipped)
+            }
+            .hoverEffect(.lift)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .overlay {
+                bottomAccessory()
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .padding(.bottom)
             }
         }
     }
 
-    var angle: Angle {
-        Angle.degrees(angleOffset)
+    var widthMultiplier: Double {
+        if sizeClass == .compact {
+            return 0.92
+        } else {
+            return 0.5
+        }
     }
 
-    func update() {
-        let maxOffset = 15.0
-        let minOffset = -15.0
+    func background(geo: GeometryProxy) -> some View {
+        RoundedRectangle(cornerRadius: 25)
+            .fill(Color.systemBackground)
+            .frame(
+                width: geo.frame(in: .local).width * widthMultiplier,
+                height: geo.frame(in: .local).height * 0.5
+            )
+            .shadow(color: .black.opacity(0.3), radius: 25)
+    }
 
-        if angleOffset == maxOffset { angleDirection = .decreasing }
-        if angleOffset == minOffset { angleDirection = .increasing }
+    func frontBackground(geo: GeometryProxy) -> some View {
+        background(geo: geo)
+            .overlay(alignment: .topTrailing) {
+                frontAccessory()
+                    .padding()
+            }
 
-        if angleDirection == .increasing {
-            angleOffset += 1
-        } else {
-            angleOffset -= 1
+    }
+}
+
+fileprivate struct TestView: View {
+    @State private var isFlipped = false
+
+    var body: some View {
+        Card(isFlipped: $isFlipped) {
+            Text("HELLO")
+        } back: {
+            LinearSystemView(linearSystem: .example)
+        } frontAccessory: {
+            Text("Text")
+        } bottomAccessory: {
+            Button("heolo") {
+                withAnimation {
+                    isFlipped.toggle()
+                }
+            }
         }
     }
 }
 
 struct CardTest_Previews: PreviewProvider {
     static var previews: some View {
-        Card {
-            Text("Hello")
-        } topAccessory: {
-            Text("Top")
-        } bottomAccessory: {
-            Text("Bottom")
-        }
-
+        TestView()
     }
 }

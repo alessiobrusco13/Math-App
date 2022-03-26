@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension Font {
-    static func equation(size: CGFloat) -> Font {
-        Font.system(size: size, weight: .regular, design: .serif).italic()
+    static var equation: Font {
+        .system(.largeTitle, design: .serif).italic()
     }
 }
