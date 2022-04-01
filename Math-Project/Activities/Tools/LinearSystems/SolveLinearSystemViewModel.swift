@@ -7,14 +7,24 @@
 
 import Foundation
 
-extension SolveLinearSystemView {
+extension SystemSolutionView {
     class ViewModel: ObservableObject {
         let linearSystem: LinearSystem
 
-        @Published var solutionMethod = SystemSolver.SolutionMethod.cramer
+        var error: LinearSystem.SystemError?
+        var solution: LinearSystem.Solution?
 
         init(linearSystem: LinearSystem) {
             self.linearSystem = linearSystem
+        }
+
+        func solve() {
+            do {
+                solution = try SystemSolver.solution(for: linearSystem, using: .gauss)
+            } catch {
+                self.error = error as? LinearSystem.SystemError
+                print(error.localizedDescription)
+            }
         }
     }
 }

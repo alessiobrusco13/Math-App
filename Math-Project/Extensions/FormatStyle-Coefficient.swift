@@ -9,11 +9,11 @@ import Foundation
 
 struct CoefficientFormatStyle: FormatStyle {
     func format(_ value: Double) -> String {
-        if value == floor(value) {
-            return String(Int(value))
-        } else {
-            return String(value)
-        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.alwaysShowsDecimalSeparator = false
+
+        return formatter.string(from: NSNumber(floatLiteral: value)) ?? "Error"
     }
 }
 
