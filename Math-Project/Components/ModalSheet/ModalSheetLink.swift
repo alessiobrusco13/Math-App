@@ -12,7 +12,7 @@ extension ModalSheetLink {
         var parent: ModalSheetLink?
         var trigger: UIView?
 
-        @objc func presentSheet() {
+        @objc public func presentSheet() {
             guard let parent = parent else { return }
 
             let contentHost = UIHostingController(rootView: parent.content())

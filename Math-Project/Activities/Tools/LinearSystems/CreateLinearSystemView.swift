@@ -50,7 +50,11 @@ struct CreateLinearSystemView: View {
         .card(isPresented: $showingLinearSystem, isFlipped: $showingSolution) {
             LinearSystemView(linearSystem: viewModel.linearSystem)
         } back: {
-            SystemSolutionView(linearSystem: viewModel.linearSystem)
+            SystemSolutionView(
+                linearSystem: viewModel.linearSystem,
+                isPresented: $showingLinearSystem,
+                isFlipped: $showingSolution
+            )
         } frontAccessory: {
             infoButton
         } bottomAccessory: {
@@ -130,7 +134,7 @@ struct CreateLinearSystemView: View {
                 showingInfoPopover.toggle()
             }
             .popover(isPresented: $showingInfoPopover) {
-                SystemSolutionView(linearSystem: viewModel.linearSystem)
+                Rectangle()
                     .frame(width: 500, height: 500)
             }
         }

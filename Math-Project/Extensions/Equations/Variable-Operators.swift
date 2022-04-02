@@ -38,4 +38,24 @@ extension Variable: Equatable, Comparable {
         guard lhs === rhs else { return nil }
         return Variable(type: lhs.type, exponent: lhs.exponent + rhs.exponent)
     }
+
+    fileprivate static func *(lhs: Variable, rhs: Variable) -> Variable {
+        return Variable(type: lhs.type, exponent: lhs.exponent + rhs.exponent)
+    }
+}
+
+extension Array where Element == Variable {
+    static func *(lhs: [Element], rhs: [Element]) -> [Element] {
+        var result = [Element]()
+
+        for lhsVar in lhs {
+            for rhsVar in rhs {
+                if lhsVar === rhsVar {
+                    result.append(lhsVar * rhsVar)
+                }
+            }
+        }
+
+        return result
+    }
 }

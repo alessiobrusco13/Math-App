@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Rational: Equatable, Comparable {
+extension Rational: Equatable, Comparable, AdditiveArithmetic {
     static func ==(lhs: Rational, rhs: Rational) -> Bool {
         lhs.numerator == rhs.numerator
         &&

@@ -24,12 +24,12 @@ private struct CardModifier<Front: View, Back: View, FrontAccessory: View, Botto
                     .overlay(.ultraThinMaterial)
                     .onTapGesture {
                         withAnimation(.spring()) {
-                            isPresented.toggle()
+                            isPresented = false
                             onDismiss()
                         }
 
                         withAnimation(.card) {
-                            isFlipped.toggle()
+                            isFlipped = false
                         }
                     }
 

@@ -11,7 +11,7 @@ extension SystemSolutionView {
     class ViewModel: ObservableObject {
         let linearSystem: LinearSystem
 
-        var error: LinearSystem.SystemError?
+        var error: SystemSolver.SolutionError?
         var solution: LinearSystem.Solution?
 
         init(linearSystem: LinearSystem) {
@@ -22,7 +22,7 @@ extension SystemSolutionView {
             do {
                 solution = try SystemSolver.solution(for: linearSystem, using: .gauss)
             } catch {
-                self.error = error as? LinearSystem.SystemError
+                self.error = error as? SystemSolver.SolutionError
                 print(error.localizedDescription)
             }
         }

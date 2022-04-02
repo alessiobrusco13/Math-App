@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum SystemSolver {
     /// Solves a linear system using the preferred method.
@@ -214,12 +215,12 @@ enum SystemSolver {
     enum SolutionError: Error {
         case systemNotCompatible, systemInWrongFormat
 
-        var localizedDescription: String {
+        var localizedDescription: LocalizedStringKey {
             switch self {
             case .systemNotCompatible:
-                return "The linear system wasn't solved because it isn't compatible."
+                return "The linear system couldn't be solved because the equations aren't compatible."
             case .systemInWrongFormat:
-                return "The linear system wasn't solved because it wasn't in the correct format."
+                return "The linear system couldn't be solved because it isn't in the correct format."
             }
         }
     }

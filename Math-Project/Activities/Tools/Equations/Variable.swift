@@ -24,6 +24,6 @@ struct Variable {
     static let sqX = Variable(type: .x, exponent: 2)
     static let sqY = Variable(type: .y, exponent: 2)
 
-    static let sqRtX = Variable(type: .x, exponent: Rational(1, over: 2))
-    static let sqRtY = Variable(type: .y, exponent: Rational(1, over: 2))
+    static let sqrtX = Variable(type: .x, exponent: Rational(1, over: 2))
+    static let sqrtY = Variable(type: .y, exponent: Rational(1, over: 2))
 }
