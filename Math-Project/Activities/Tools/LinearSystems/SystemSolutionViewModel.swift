@@ -20,7 +20,11 @@ extension SystemSolutionView {
 
         func solve() {
             do {
-                solution = try SystemSolver.solution(for: linearSystem, using: .gauss)
+                let solution = try SystemSolver.solution(for: linearSystem, using: .gauss)
+                guard solution.xTerm != .nan && solution.yTerm != .nan && (solution.zTerm ?? 0) != .nan else {
+                    error = .systemNotCompatible
+                    return
+                }
             } catch {
                 self.error = error as? SystemSolver.SolutionError
                 print(error.localizedDescription)
