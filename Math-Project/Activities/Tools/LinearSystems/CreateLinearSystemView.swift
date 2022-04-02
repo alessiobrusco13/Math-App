@@ -41,6 +41,8 @@ struct CreateLinearSystemView: View {
             fields
             buttons
         }
+        .background(Color.systemBackground)
+        .gesture(swipe)
         .navigationTitle("Linear System Solver")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(content: equationMenu)
@@ -62,6 +64,25 @@ struct CreateLinearSystemView: View {
         } onDismiss: {
             if horizontalSizeClass == .regular { showingInfoPopover = false }
         }
+    }
+
+    var swipe: some Gesture {
+        DragGesture()
+            .onEnded { value in
+                if value.translation.height >= 20 {
+                    focusedEquation = nil
+                }
+
+                if value.translation.width >= 20  {
+                    backAction()
+                }
+
+                if value.translation.width <= -20 {
+                    if !viewModel.shouldCreateLinearSystem {
+                        continueAction()
+                    }
+                }
+            }
     }
     
     var fields: some View {

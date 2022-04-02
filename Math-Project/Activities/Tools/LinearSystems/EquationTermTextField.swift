@@ -13,6 +13,8 @@ struct EquationTermTextField: View {
     let term: LinearSystem.Equation.Term
     @Binding var value: Double
 
+    @State private var text = ""
+
     @FocusState private var focused: Bool
 
     var body: some View {
@@ -20,7 +22,7 @@ struct EquationTermTextField: View {
             Text(term.rawValue + " ")
                 .font(.system(size: size, weight: .semibold, design: .serif).italic())
 
-            TextField(term.rawValue + String(localized: "Term"), value: $value, format: .number)
+            TextField( "\(term.rawValue.uppercased()) Coefficient", text: $text.onChange(update))
                 .focused($focused)
                 .textFieldStyle(.plain)
                 .keyboardType(.decimalPad)
@@ -50,6 +52,9 @@ struct EquationTermTextField: View {
         )
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("The \(term.rawValue) term is \(value.formatted())")
+        .onChange(of: value) { _ in
+            update()
+        }
     }
 
     init(_ term: LinearSystem.Equation.Term, value: Binding<Double>) {
@@ -65,7 +70,14 @@ struct EquationTermTextField: View {
             value = 1
         }
 
-        focused.toggle()
+        text = ""
+        focused = false
+    }
+
+    func update() {
+        if (Double(text) ?? 0) != value {
+            value = Double(text) ?? 0
+        }
     }
 }
 
