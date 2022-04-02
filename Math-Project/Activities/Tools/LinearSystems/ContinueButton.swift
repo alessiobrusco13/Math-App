@@ -18,6 +18,7 @@ struct ContinueButton: View {
         }
         .controlSize(.large)
         .buttonStyle(.borderedProminent)
+        .transition(.asymmetric(insertion: .scale.combined(with: .slide), removal: .move(edge: .bottom)))
     }
 }
 

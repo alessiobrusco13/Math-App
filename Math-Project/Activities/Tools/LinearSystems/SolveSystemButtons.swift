@@ -1,5 +1,5 @@
 //
-//  SolveSystemButton.swift
+//  SolveSystemButtons.swift
 //  Math-Project
 //
 //  Created by Alessio Garzia Marotta Brusco on 26/03/22.
@@ -7,17 +7,33 @@
 
 import SwiftUI
 
-struct SolveSystemButton: View {
+struct SolveSystemButtons: View {
     @Binding var showingSolution: Bool
+    @Binding var showingLinearSystem: Bool
+
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
+        HStack {
+            if showingSolution {
+                BackButton(action: dismiss.callAsFunction)
+                    .buttonStyle(.borderedProminent)
+                    .tint(.red)
+            }
+
+            dismissButton
+        }
+        .padding(.horizontal)
+    }
+
+    var dismissButton: some View {
         Button {
             withAnimation(.card) {
                 if !showingSolution {
-                    showingSolution.toggle()
+                    showingSolution = true
                 } else {
-                    dismiss()
+                    showingLinearSystem = false
+                    showingSolution = false
                 }
             }
         } label: {
@@ -25,13 +41,12 @@ struct SolveSystemButton: View {
                 .frame(maxWidth: 350)
         }
         .buttonStyle(.borderedProminent)
-        .tint(showingSolution ? .red : .accentColor)
         .controlSize(.large)
     }
 }
 
 struct SolveSystemButton_Previews: PreviewProvider {
     static var previews: some View {
-        SolveSystemButton(showingSolution: .constant(false))
+        SolveSystemButtons(showingSolution: .constant(true), showingLinearSystem: .constant(true))
     }
 }

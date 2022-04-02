@@ -48,7 +48,7 @@
 		6C73CCE4270375B8000C12DC /* NavigationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73CCE3270375B8000C12DC /* NavigationSelection.swift */; };
 		6C7F5A2827EA116900DC3AF7 /* Int-RationalInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F5A2727EA116900DC3AF7 /* Int-RationalInit.swift */; };
 		6C94339B27EF8868002A8472 /* Animation-Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339A27EF8868002A8472 /* Animation-Card.swift */; };
-		6C94339D27EF8E37002A8472 /* SolveSystemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339C27EF8E37002A8472 /* SolveSystemButton.swift */; };
+		6C94339D27EF8E37002A8472 /* SolveSystemButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339C27EF8E37002A8472 /* SolveSystemButtons.swift */; };
 		6C94339F27EF93B1002A8472 /* FormatStyle-Coefficient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339E27EF93B1002A8472 /* FormatStyle-Coefficient.swift */; };
 		6CA40284274ECF5C004501F9 /* ModalSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40283274ECF5C004501F9 /* ModalSheetController.swift */; };
 		6CA40286274ED0FF004501F9 /* ModalSheetLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA40285274ED0FF004501F9 /* ModalSheetLink.swift */; };
@@ -114,7 +114,7 @@
 		6C73CCE3270375B8000C12DC /* NavigationSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSelection.swift; sourceTree = "<group>"; };
 		6C7F5A2727EA116900DC3AF7 /* Int-RationalInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int-RationalInit.swift"; sourceTree = "<group>"; };
 		6C94339A27EF8868002A8472 /* Animation-Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation-Card.swift"; sourceTree = "<group>"; };
-		6C94339C27EF8E37002A8472 /* SolveSystemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveSystemButton.swift; sourceTree = "<group>"; };
+		6C94339C27EF8E37002A8472 /* SolveSystemButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveSystemButtons.swift; sourceTree = "<group>"; };
 		6C94339E27EF93B1002A8472 /* FormatStyle-Coefficient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormatStyle-Coefficient.swift"; sourceTree = "<group>"; };
 		6CA40283274ECF5C004501F9 /* ModalSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetController.swift; sourceTree = "<group>"; };
 		6CA40285274ED0FF004501F9 /* ModalSheetLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalSheetLink.swift; sourceTree = "<group>"; };
@@ -306,7 +306,7 @@
 				6CE3514C26FF70CF00911C5B /* BackButton.swift */,
 				6C23A69A27E71F2C00E5E294 /* InfoButton.swift */,
 				6CE3514E26FF71BB00911C5B /* ContinueButton.swift */,
-				6C94339C27EF8E37002A8472 /* SolveSystemButton.swift */,
+				6C94339C27EF8E37002A8472 /* SolveSystemButtons.swift */,
 				6C1F502C26E289AC00C3381F /* CreateSystemEquationView.swift */,
 				6C1F502A26E2898700C3381F /* CreateLinearSystemView.swift */,
 				6C28AB5126FA22A10018E1E5 /* CreateLinearSystemViewModel.swift */,
@@ -431,7 +431,7 @@
 				6C30205F26D502EE00CA653E /* LinearGradient-ColorInitializer.swift in Sources */,
 				6CA40286274ED0FF004501F9 /* ModalSheetLink.swift in Sources */,
 				6CF4725F26D7D8BC00B11ABC /* RecentsView.swift in Sources */,
-				6C94339D27EF8E37002A8472 /* SolveSystemButton.swift in Sources */,
+				6C94339D27EF8E37002A8472 /* SolveSystemButtons.swift in Sources */,
 				6CCC577626D7E33400C02F3E /* Color-SemanticColors.swift in Sources */,
 				6CE3514B26FF6EA300911C5B /* EquationNumberMenu.swift in Sources */,
 				6C30205426D4FA9100CA653E /* Tool.swift in Sources */,

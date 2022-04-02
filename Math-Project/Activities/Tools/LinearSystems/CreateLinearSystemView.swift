@@ -60,7 +60,7 @@ struct CreateLinearSystemView: View {
         } frontAccessory: {
             infoButton
         } bottomAccessory: {
-            SolveSystemButton(showingSolution: $showingSolution)
+            SolveSystemButtons(showingSolution: $showingSolution, showingLinearSystem: $showingLinearSystem)
         } onDismiss: {
             if horizontalSizeClass == .regular { showingInfoPopover = false }
         }
@@ -69,10 +69,6 @@ struct CreateLinearSystemView: View {
     var swipe: some Gesture {
         DragGesture()
             .onEnded { value in
-                if value.translation.height >= 20 {
-                    focusedEquation = nil
-                }
-
                 if value.translation.width >= 20  {
                     backAction()
                 }
@@ -125,6 +121,9 @@ struct CreateLinearSystemView: View {
         HStack {
             if showingBack {
                 BackButton(action: backAction)
+                    .buttonStyle(.bordered)
+                    .tint(.accentColor)
+                    .transition(.scale.combined(with: .slide))
             }
             
             ContinueButton(title: buttonTitle, action: continueAction)

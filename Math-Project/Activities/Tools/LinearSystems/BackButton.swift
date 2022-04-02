@@ -15,9 +15,6 @@ struct BackButton: View {
             Image(systemName: "chevron.left")
         }
         .controlSize(.large)
-        .buttonStyle(.bordered)
-        .tint(.accentColor)
-        .transition(.scale.combined(with: .slide))
     }
 }
 
