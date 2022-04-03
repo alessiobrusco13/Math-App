@@ -75,13 +75,13 @@ fileprivate struct TestView: View {
 
     var body: some View {
         Card(isFlipped: $isFlipped) {
-            Text("HELLO")
+            Text(verbatim: "HELLO")
         } back: {
             LinearSystemView(linearSystem: .example)
         } frontAccessory: {
-            Text("Text")
+            Text(verbatim: "Text")
         } bottomAccessory: {
-            Button("heolo") {
+            Button(String("heolo")) {
                 withAnimation {
                     isFlipped.toggle()
                 }

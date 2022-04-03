@@ -154,7 +154,7 @@ private struct ModifierTestView: View {
             Color.indigo.ignoresSafeArea()
 
             VStack {
-                Button("Show Card") {
+                Button(String("Show Card")) {
                     withAnimation(.spring()) {
                         showingCard.toggle()
                     }
@@ -162,9 +162,9 @@ private struct ModifierTestView: View {
             }
         }
         .card(isPresented: $showingCard, isFlipped: $cardFlipped) {
-            Text("Test")
+            Text(verbatim: "Test")
         } back: {
-            Text("HEllo")
+            Text(verbatim: "HEllo")
         } frontAccessory: {
             Button {
 
@@ -174,7 +174,7 @@ private struct ModifierTestView: View {
                     .font(.title3)
             }
         } bottomAccessory: {
-            Button("Hello") {
+            Button(String("Hello")) {
                 withAnimation(.card) {
                     cardFlipped.toggle()
                 }

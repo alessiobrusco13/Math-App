@@ -94,9 +94,9 @@ struct Sheet_Previews: PreviewProvider {
             .shadow(radius: 5)
             .overlay(alignment: .topTrailing) {
                 ModalSheetLink {
-                    Text("NICE SHEET")
+                    Text(verbatim: "NICE SHEET")
                 } trigger: {
-                    Text("Try me")
+                    Text(verbatim: "Try me")
                 }
                 .background(.red)
             }

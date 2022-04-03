@@ -51,7 +51,7 @@ struct EquationTermTextField: View {
                 }
         )
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("The \(term.rawValue) term is \(value.formatted())")
+        .accessibilityLabel("The \(term.rawValue) coefficient is \(value.formatted())")
         .onChange(of: value) { _ in
             update()
         }

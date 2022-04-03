@@ -1,0 +1,91 @@
+/* MISC */
+
+/* No comment provided by engineer. */
+" %@ " = "%@";
+
+/* No comment provided by engineer. */
+"%@ Coefficient" = "Coefficiente %@";
+
+"The %@ coefficient is %@" = "Il coefficiente %@ è %@";
+
+/* No comment provided by engineer. */
+"Calculator" = "Calcolatrice";
+
+/* No comment provided by engineer. */
+"Continue" = "Continua";
+
+/* No comment provided by engineer. */
+"Create Linear System" = "Crea Sistema Lineare";
+
+/* No comment provided by engineer. */
+"Description..." = "Descrizione";
+
+/* No comment provided by engineer. */
+"Dismiss" = "Annulla";
+
+/* No comment provided by engineer. */
+"Equation Solver" = "Risolutore di Equazioni";
+
+/* No comment provided by engineer. */
+"First Equation" = "Prima Equazione";
+
+/* No comment provided by engineer. */
+"Graphs" = "Grafici";
+
+/* No comment provided by engineer. */
+"Linear System Solver" = "Risolutore di Sistemi Lineari";
+
+/* No comment provided by engineer. */
+"OK" = "OK";
+
+/* No comment provided by engineer. */
+"Recent Equation #%lld" = "Equazione Recente N°%lld";
+
+/* No comment provided by engineer. */
+"Recents" = "Recenti";
+
+/* No comment provided by engineer. */
+"Second Equation" = "Seconda Equazione";
+
+/* No comment provided by engineer. */
+"Select the number of equations for the system." = "Seleziona il numero di equazioni del sistema.";
+
+/* No comment provided by engineer. */
+"Solve" = "Risolvi";
+
+/* No comment provided by engineer. */
+"The linear system couldn't be solved because it isn't in the correct format." = "Non è stato possibile risolvere il sistema lineare perché non è nel formato corretto.";
+
+/* No comment provided by engineer. */
+"The linear system couldn't be solved because the equations aren't compatible." = "Non è stato possibile risolvere il sistema lineare perché le equazioni non sono compatibili.";
+
+/* No comment provided by engineer. */
+"The Linear System couldn't be sovled." = "Non è stato possibile risolvere il Sistema Lineare.";
+
+/* No comment provided by engineer. */
+"There was an error creating your linear system. Please, try again." = "C'è stato un errore nel creare il tuo sistema lineare. Per favore, riprova.";
+
+/* No comment provided by engineer. */
+"Third Equation" = "Terza Equazione";
+
+/* No comment provided by engineer. */
+"Three Equations" = "Tre Equazioni";
+
+/* No comment provided by engineer. */
+"Tools" = "Strumenti";
+
+/* No comment provided by engineer. */
+"Two Equations" = "Due Equazoni";
+
+/* No comment provided by engineer. */
+"x = %@ " = "x = %@ ";
+
+/* No comment provided by engineer. */
+"y = %@ " = "y = %@ ";
+
+/* No comment provided by engineer. */
+"z = %@ " = "z = %@ ";
+
+/* No comment provided by engineer. */
+"πMath" = "πMath";
+

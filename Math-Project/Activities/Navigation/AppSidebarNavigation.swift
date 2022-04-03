@@ -46,7 +46,7 @@ struct AppSidebarNavigation: View {
                 }
             }
             .listStyle(.sidebar)
-            .navigationTitle("ΔMath")
+            .navigationTitle("πMath")
         }
         .navigationViewStyle(.columns)
     }

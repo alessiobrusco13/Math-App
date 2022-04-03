@@ -20,7 +20,7 @@ struct ListToolsView: View {
                 }
                 .buttonStyle(.squishable(fadeOnPress: true))
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel("\(tool.name), \(tool.description)")
+                .accessibilityLabel(String("\(tool.name), \(tool.description)"))
             }
         }
         .padding(.bottom)

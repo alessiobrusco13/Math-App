@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Tool: Identifiable, Hashable {
-    enum Identifier: String {
+struct Tool: Identifiable {
+    enum Identifier: LocalizedStringKey {
         case linearSystemSolver = "Linear System Solver"
         case equationSolver = "Equation Solver"
     }
 
-    let name: String
-    let description: String
+    let name: LocalizedStringKey
+    let description: LocalizedStringKey
     let icon: String
     let systemImageName: String?
     let color: Color
@@ -22,12 +22,6 @@ struct Tool: Identifiable, Hashable {
     var id: Identifier { Identifier(rawValue: name)! }
 
     static let example = allTools[0]
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(description)
-        hasher.combine(icon)
-    }
 }
 
 extension Tool {

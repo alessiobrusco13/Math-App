@@ -145,7 +145,7 @@ struct CreateLinearSystemView: View {
     var infoButton: some View {
         if horizontalSizeClass == .compact {
             ModalSheetLink(cornerRadius: 16) {
-                Text("INFO TAB")
+                Text(verbatim: "INFO TAB")
             } trigger: {
                 InfoButton()
             }
