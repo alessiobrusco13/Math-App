@@ -25,6 +25,8 @@ extension SystemSolutionView {
                     error = .systemNotCompatible
                     return
                 }
+
+                self.solution = solution
             } catch {
                 self.error = error as? SystemSolver.SolutionError
                 print(error.localizedDescription)
