@@ -1,0 +1,77 @@
+/* MISC */
+
+" %@ " = "%@";
+
+"Continue" = "Continue";
+
+"Dismiss" = "Dismiss";
+
+"Description..." = "Description...";
+
+"OK" = "OK";
+
+"πMath" = "πMath";
+
+
+"Tools" = "Tools";
+
+
+/* LINEAR SYSTEMS*/
+
+"Linear System Solver" = "Linear System Solver";
+
+"%@ Coefficient" = "%@ Coefficient";
+
+"The %@ coefficient is %@" = "The %@ coefficient is %@";
+
+"Create Linear System" = "Create Linear System";
+
+"First Equation" = "First Equation";
+
+"Second Equation" = "Second Equation";
+
+"Third Equation" = "Third Equation";
+
+"Solve" = "Solve";
+
+"Select the number of equations for the system." = "Select the number of equations for the system.";
+
+"Three Equations" = "Three Equations";
+
+"Two Equations" = "Two Equations";
+
+"x = %@ " = "x = %@ ";
+
+"y = %@ " = "y = %@ ";
+
+"z = %@ " = "z = %@ ";
+
+"The linear system couldn't be solved because it isn't in the correct format." = "The linear system couldn't be solved because it isn't in the correct format.";
+
+"The linear system couldn't be solved because the equations aren't compatible." = "The linear system couldn't be solved because the equations aren't compatible.";
+
+"The Linear System couldn't be sovled." = "The Linear System couldn't be sovled.";
+
+"There was an error creating your linear system. Please, try again." = "There was an error creating your linear system. Please, try again.";
+
+
+/* CALCULATOR */
+
+"Calculator" = "Calculator";
+
+
+/* EQUATION SOLVER */
+
+"Equation Solver" = "Equation Solver";
+
+
+/* GRAPHS */
+
+"Graphs" = "Graphs";
+
+
+/* RECENTS */
+
+"Recents" = "Recents";
+
+"Recent Equation #%lld" = "Recent Equation #%lld";
