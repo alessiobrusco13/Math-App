@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct CalculatorView: View {
+    @StateObject private var calculator = Calculator()
+
     var body: some View {
-        Text(verbatim: "Calculator here...")
-            .navigationTitle("Calculator")
+        ForEach(calculator.buttons) { row in
+            Text("")
+        }
     }
 }
 

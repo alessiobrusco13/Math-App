@@ -48,6 +48,9 @@
 		6C73CCE4270375B8000C12DC /* NavigationSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73CCE3270375B8000C12DC /* NavigationSelection.swift */; };
 		6C7F5A2827EA116900DC3AF7 /* Int-RationalInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F5A2727EA116900DC3AF7 /* Int-RationalInit.swift */; };
 		6C9081A727F9CA7100E263ED /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C9081A427F9C94100E263ED /* Localizable.strings */; };
+		6C9081A927F9CC6500E263ED /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9081A827F9CC6500E263ED /* Calculator.swift */; };
+		6C9081AB27F9CC9800E263ED /* CalculatorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9081AA27F9CC9800E263ED /* CalculatorButton.swift */; };
+		6C9081AD27F9CFB400E263ED /* Color-Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9081AC27F9CFB400E263ED /* Color-Calculator.swift */; };
 		6C94339B27EF8868002A8472 /* Animation-Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339A27EF8868002A8472 /* Animation-Card.swift */; };
 		6C94339D27EF8E37002A8472 /* SolveSystemButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339C27EF8E37002A8472 /* SolveSystemButtons.swift */; };
 		6C94339F27EF93B1002A8472 /* FormatStyle-Coefficient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C94339E27EF93B1002A8472 /* FormatStyle-Coefficient.swift */; };
@@ -116,6 +119,9 @@
 		6C7F5A2727EA116900DC3AF7 /* Int-RationalInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int-RationalInit.swift"; sourceTree = "<group>"; };
 		6C9081A327F9C94100E263ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6C9081A627F9C95400E263ED /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6C9081A827F9CC6500E263ED /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		6C9081AA27F9CC9800E263ED /* CalculatorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButton.swift; sourceTree = "<group>"; };
+		6C9081AC27F9CFB400E263ED /* Color-Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Calculator.swift"; sourceTree = "<group>"; };
 		6C94339A27EF8868002A8472 /* Animation-Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Animation-Card.swift"; sourceTree = "<group>"; };
 		6C94339C27EF8E37002A8472 /* SolveSystemButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolveSystemButtons.swift; sourceTree = "<group>"; };
 		6C94339E27EF93B1002A8472 /* FormatStyle-Coefficient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FormatStyle-Coefficient.swift"; sourceTree = "<group>"; };
@@ -264,6 +270,7 @@
 				6C317EB02788528E00F97600 /* Font-Equation.swift */,
 				6C09D82227E73FE4008E4F16 /* Equations */,
 				6C94339A27EF8868002A8472 /* Animation-Card.swift */,
+				6C9081AC27F9CFB400E263ED /* Color-Calculator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -281,6 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				6C40F27B272D554600C1E018 /* CalculatorView.swift */,
+				6C9081A827F9CC6500E263ED /* Calculator.swift */,
+				6C9081AA27F9CC9800E263ED /* CalculatorButton.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -437,6 +446,7 @@
 				6C09D81527E735F6008E4F16 /* GraphViewRegular.swift in Sources */,
 				6CE3514F26FF71BB00911C5B /* ContinueButton.swift in Sources */,
 				6C09D81127E7349A008E4F16 /* GraphView.swift in Sources */,
+				6C9081AB27F9CC9800E263ED /* CalculatorButton.swift in Sources */,
 				6C1F502D26E289AC00C3381F /* CreateSystemEquationView.swift in Sources */,
 				6C73CCE22703745F000C12DC /* AppSidebarNavigation.swift in Sources */,
 				6C28E8EA26D6E5C200EE575F /* SelectedView.swift in Sources */,
@@ -468,6 +478,7 @@
 				6C73CCDD27035DAC000C12DC /* GridToolsView.swift in Sources */,
 				6C73CCDB27035C76000C12DC /* ListToolsView.swift in Sources */,
 				6C6D23E9274E7EE9003E4AAD /* SystemSolutionViewModel.swift in Sources */,
+				6C9081AD27F9CFB400E263ED /* Color-Calculator.swift in Sources */,
 				6C30206126D5520600CA653E /* Bundle-Decodable.swift in Sources */,
 				6C073DF027F8AECE00213957 /* Monomial-Operators.swift in Sources */,
 				6C09D81727E73840008E4F16 /* Graphable.swift in Sources */,
@@ -485,6 +496,7 @@
 				6C7F5A2827EA116900DC3AF7 /* Int-RationalInit.swift in Sources */,
 				6C09D82127E73FDD008E4F16 /* Rational-Operators.swift in Sources */,
 				6C6D23E7274E7ED4003E4AAD /* SystemSolutionView.swift in Sources */,
+				6C9081A927F9CC6500E263ED /* Calculator.swift in Sources */,
 				6CC9966326DE9CBE00EE9CF7 /* EquationTextFields.swift in Sources */,
 				6CACB8712733D92300DCAFE9 /* SquishableButtonStyle.swift in Sources */,
 				6C30205C26D5022C00CA653E /* ToolView.swift in Sources */,
