@@ -6,36 +6,94 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Calculator: ObservableObject {
-    typealias Button = CalculatorButton
+    @Published var currentOperation = [String]() {
+        didSet {
+            if !currentOperation.isEmpty {
+                isClear = false
+            } else {
+                isClear = true
+            }
+        }
+    }
 
-    @Published var currentOperation = ""
+    @Published var currentResult = ""
 
-    lazy var buttons: [[CalculatorButton]] = { [
+    @Published var isClear = true
+
+    var proxy: GeometryProxy?
+
+    func buttons(proxy: GeometryProxy) -> [[CalculatorButton]] { [
         [
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false)
+            CalculatorButton(text: isClear ? "AC" : "C", action: clear, type: .utility, calculator: self),
+            CalculatorButton(systemImage: "plus.forwardslash.minus", action: toggleMinus, type: .utility, calculator: self),
+            CalculatorButton(systemImage: "percent", action: operatorAction, type: .utility, calculator: self),
+            CalculatorButton(systemImage: "divide", action: operatorAction, type: .accent, calculator: self)
         ],
 
         [
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false)
+            CalculatorButton(text: "7", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(text: "8", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(text: "9", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(systemImage: "multiply", action: operatorAction, type: .accent, calculator: self)
         ],
 
         [
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false),
-            CalculatorButton(text: "7", action: numberAction, accent: false)
+            CalculatorButton(text: "4", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(text: "5", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(text: "6", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(systemImage: "minus", action: operatorAction, type: .accent, calculator: self)
+        ],
+
+        [
+            CalculatorButton(text: "1", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(text: "2", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(text: "3", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(systemImage: "plus", action: operatorAction, type: .accent, calculator: self)
+        ],
+
+        [
+            CalculatorButton(text: "0", action: numberAction, type: .standard, doubleWidth: true, calculator: self),
+            CalculatorButton(text: ".", action: numberAction, type: .standard, calculator: self),
+            CalculatorButton(systemImage: "equal", action: operatorAction, type: .accent, calculator: self)
         ]
-    ] }()
+    ] }
 
-    func numberAction(number: String) {
-        currentOperation += number
+    func numberAction(numberStr: String) {
+        if currentResult.count < 9 {
+            currentResult.append(numberStr)
+
+//            if currentOperation.count >= 18 {
+//                currentOperation = [currentResult]
+//            } else {
+                currentOperation.append(numberStr)
+//            }
+        }
+    }
+
+    func operatorAction(operatorStr: String) {
+        currentResult = ""
+        currentOperation.append(operatorStr)
+    }
+
+    func clear(input: String) {
+        currentOperation.removeAll()
+        currentResult = ""
+    }
+
+    func toggleMinus(input: String) {
+        guard let first = currentResult.first else { return }
+
+        if first == "-" {
+            currentResult.removeFirst()
+        } else {
+            currentResult = "-\(currentResult)"
+        }
+    }
+
+    func backSpace() {
+        
     }
 }

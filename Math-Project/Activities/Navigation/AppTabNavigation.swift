@@ -13,6 +13,14 @@ struct AppTabNavigation: View {
     var body: some View {
         TabView(selection: $selection) {
             NavigationView {
+                CalculatorView()
+            }
+            .tag(NavigationTag.calculator)
+            .tabItem {
+                Label("Calculator", systemImage: "function")
+            }
+
+            NavigationView {
                 ToolsView()
             }
             .tag(NavigationTag.tools)

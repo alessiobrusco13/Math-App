@@ -18,7 +18,7 @@ struct ListToolsView: View {
                 } label: {
                     ToolView.listItem(tool: tool)
                 }
-                .buttonStyle(.squishable(fadeOnPress: true))
+                .buttonStyle(.squishable(fadeOnPress: false))
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel(String("\(tool.name), \(tool.description)"))
             }

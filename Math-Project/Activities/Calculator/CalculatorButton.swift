@@ -12,31 +12,113 @@ extension Array: Identifiable where Element == CalculatorButton {
 }
 
 public struct CalculatorButton: View, Identifiable {
+    enum ButtonType {
+        case standard, utility, accent
+    }
+
+    @Environment(\.colorScheme) private var colorScheme
+
+    @ObservedObject var calculator: Calculator
+
     public let id = UUID()
     let text: String
+    let systemImage: String?
     let action: (String) -> Void
-    let accent: Bool
+    let type: ButtonType
+    let doubleWidth: Bool
 
     public var body: some View {
         Button {
             action(text)
         } label: {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(accent ? Color.calculatorAccent : Color.calculatorButton)
+                .fill(color)
                 .overlay {
-                    Text(text)
-                        .foregroundColor(accent ? .white : .black)
-                        .font(.title2)
-                        .fontWeight(.semibold)
+                    content
+                    .font(.title)
+                    .foregroundColor(textColor)
+
                 }
-                .frame(maxWidth: 80, maxHeight: 80)
+                .frame(maxWidth: doubleWidth ? buttonWidth * 2 : buttonWidth, maxHeight: buttonWidth)
         }
         .foregroundColor(.primary)
+    }
+
+    @ViewBuilder
+    var content: some View {
+        if let systemImage = systemImage {
+            Image(systemName: systemImage)
+        } else {
+            Text(text)
+                .fontWeight(.semibold)
+        }
+    }
+
+    init(
+        text: String,
+        action: @escaping (String) -> Void,
+        type: ButtonType,
+        doubleWidth: Bool = false,
+        calculator: Calculator
+    ) {
+        self.text = text
+        self.action = action
+        self.type = type
+        self.doubleWidth = doubleWidth
+        self.calculator = calculator
+        systemImage = nil
+    }
+
+    init(
+        systemImage: String,
+        action: @escaping (String) -> Void,
+        type: ButtonType,
+        doubleWidth: Bool = false,
+        calculator: Calculator
+    ) {
+        self.systemImage = systemImage
+        self.action = action
+        self.type = type
+        self.doubleWidth = doubleWidth
+        self.calculator = calculator
+        text = "~\(systemImage)~"
+    }
+
+    var buttonWidth: Double {
+        (calculator.proxy?.frame(in: .global).width ?? 0) / 4.5
+    }
+
+    var light: Bool {
+        colorScheme == .light
+    }
+
+    var color: some ShapeStyle {
+        switch type {
+        case .standard:
+            return light ? Color.calculatorButtonLight : Color.calculatorButtonDark
+        case .utility:
+            return light ? Color.blue : Color.blue
+        case .accent:
+            return Color.calculatorAccent
+        }
+    }
+
+    var textColor: Color {
+        switch type {
+        case .standard:
+            return .primary
+        default:
+            return .white
+        }
     }
 }
 
 struct CalculatorButton_Previews: PreviewProvider {
     static var previews: some View {
-        CalculatorButton(text: "cos()", action: { _ in }, accent: true)
+        GeometryReader { proxy in
+            CalculatorButton(text: "H", action: { _ in }, type: .standard, calculator: Calculator())
+        }
+        .padding()
+        .previewLayout(.sizeThatFits)
     }
 }
