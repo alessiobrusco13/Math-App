@@ -43,25 +43,24 @@ struct EquationTextFields: View {
         _zTerm = State(wrappedValue: equation.wrappedValue.zTerm ?? 0)
         _nTerm = State(wrappedValue: equation.wrappedValue.nTerm)
     }
-    
+
+    @ViewBuilder
     var content: some View {
-        Group {
-            if let focused = focused, let position = position {
-                EquationTermTextField(.x, value: $xTerm.onChange(update))
-                    .focused(focused, equals: position)
-            } else {
-                EquationTermTextField(.x, value: $xTerm.onChange(update))
-            }
-            
-            EquationTermTextField(.y, value: $yTerm.onChange(update))
-            
-            if equation.zTerm != nil {
-                EquationTermTextField(.z, value: $zTerm.onChange(update))
-                    .transition(.scale)
-            }
-            
-            EquationTermTextField(.n, value: $nTerm.onChange(update))
+        if let focused = focused, let position = position {
+            EquationTermTextField(.x, value: $xTerm.onChange(update))
+                .focused(focused, equals: position)
+        } else {
+            EquationTermTextField(.x, value: $xTerm.onChange(update))
         }
+
+        EquationTermTextField(.y, value: $yTerm.onChange(update))
+
+        if equation.zTerm != nil {
+            EquationTermTextField(.z, value: $zTerm.onChange(update))
+                .transition(.scale)
+        }
+
+        EquationTermTextField(.n, value: $nTerm.onChange(update))
     }
     
     var body: some View {

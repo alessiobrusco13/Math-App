@@ -13,6 +13,7 @@ struct EquationTermTextField: View {
     let term: LinearSystem.Equation.Term
     @Binding var value: Double
 
+    @State private var minus = false
     @State private var text = ""
 
     @FocusState private var focused: Bool
@@ -21,6 +22,13 @@ struct EquationTermTextField: View {
         HStack {
             Text(term.rawValue + " ")
                 .font(.system(size: size, weight: .semibold, design: .serif).italic())
+
+            Button {
+                minus.toggle()
+            } label: {
+                Image(systemName: "plus.forwardslash.minus")
+                    .font(.title2)
+            }
 
             TextField( "\(term.rawValue.uppercased()) Coefficient", text: $text.onChange(update))
                 .focused($focused)
@@ -54,6 +62,13 @@ struct EquationTermTextField: View {
         .accessibilityLabel("The \(term.rawValue) coefficient is \(value.formatted())")
         .onChange(of: value) { _ in
             update()
+        }
+        .onChange(of: minus) { _ in
+            if minus {
+                text = "-\(text)"
+            } else {
+                text = text.replacingOccurrences(of: "-", with: "")
+            }
         }
     }
 

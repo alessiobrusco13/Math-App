@@ -11,8 +11,16 @@ struct CalculatorView: View {
     @StateObject private var calculator = Calculator()
 
     var body: some View {
-        ForEach(calculator.buttons) { row in
-            Text("")
+        VStack {
+            Text(calculator.currentOperation)
+            ForEach(calculator.buttons) { row in
+                HStack {
+                    ForEach(row) { button in
+                        button
+                            .buttonStyle(.squishable)
+                    }
+                }
+            }
         }
     }
 }
