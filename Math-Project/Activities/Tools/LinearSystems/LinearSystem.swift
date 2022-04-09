@@ -161,10 +161,21 @@ struct LinearSystem {
                 && lhs.zTerm?.rounded() == rhs.zTerm?.rounded()
         }
 
-        init(xTerm: Double, yTerm: Double, zTerm: Double? = nil) {
-            self.xTerm = xTerm
-            self.yTerm = yTerm
-            self.zTerm = zTerm
+        init(xTerm: Double, yTerm: Double, zTerm: Double? = nil, invertSigns: Bool = false) {
+            if invertSigns {
+                self.xTerm = -xTerm
+                self.yTerm = -yTerm
+
+                if let zTerm = zTerm {
+                    self.zTerm = -zTerm
+                } else {
+                    self.zTerm = nil
+                }
+            } else {
+                self.xTerm = xTerm
+                self.yTerm = yTerm
+                self.zTerm = zTerm
+            }
         }
     }
 

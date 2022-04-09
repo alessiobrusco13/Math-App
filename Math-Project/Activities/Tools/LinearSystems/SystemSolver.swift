@@ -28,20 +28,20 @@ enum SystemSolver {
     }
 
     // MARK: Solve two equation systems
-    private static func solutionForTwoEquations(_ system: LinearSystem, using method: SolutionMethod) -> LinearSystem.Solution {
+    private static func solutionForTwoEquations(_ system: LinearSystem, using method: SolutionMethod, invertSigns: Bool = true) -> LinearSystem.Solution {
         if system.equations.first.xTerm == 0 {
             return solutionForGenericTwoEquations(system)
         } else {
             switch method {
             case .gauss:
-                return Self.solutionUsingGaussForTwoEquations(system)
+                return Self.solutionUsingGaussForTwoEquations(system, invertSigns: invertSigns)
             case .cramer:
-                return Self.solutionUsingCramerForTwoEquations(system)
+                return Self.solutionUsingCramerForTwoEquations(system, invertSigns: invertSigns)
             }
         }
     }
 
-    private static func solutionUsingGaussForTwoEquations(_ system: LinearSystem) -> LinearSystem.Solution {
+    private static func solutionUsingGaussForTwoEquations(_ system: LinearSystem, invertSigns: Bool ) -> LinearSystem.Solution {
         let firstEquation = system.equations.first
         let secondEquation = system.equations.second
 
@@ -54,10 +54,10 @@ enum SystemSolver {
         let solutionY = newSecondN / newSecondY
         let solutionX = (firstEquation.nTerm - firstEquation.yTerm * solutionY) / firstEquation.xTerm
 
-        return LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY)
+        return LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY, invertSigns: invertSigns)
     }
 
-    private static func solutionUsingCramerForTwoEquations(_ system: LinearSystem) -> LinearSystem.Solution {
+    private static func solutionUsingCramerForTwoEquations(_ system: LinearSystem, invertSigns: Bool) -> LinearSystem.Solution {
         let firstEquation = system.equations.first
         let secondEquation = system.equations.second
 
@@ -68,7 +68,7 @@ enum SystemSolver {
         let solutionX = dX / d
         let solutionY = dY / d
 
-        return LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY)
+        return LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY, invertSigns: invertSigns)
 
     }
 
@@ -80,7 +80,7 @@ enum SystemSolver {
         let solutionX = (secondEquation.nTerm - ( calculation / firstEquation.yTerm)) / secondEquation.xTerm
         let solutionY = firstEquation.nTerm / firstEquation.yTerm
 
-        return  LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY)
+        return  LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY, invertSigns: true)
     }
 
     // MARK: Solve three equation systems
@@ -121,7 +121,7 @@ enum SystemSolver {
         let newThirdEquation = LinearSystem.Equation(xTerm: newThirdY, yTerm: newThirdZ, nTerm: newThirdN)
 
         let newSystem = try LinearSystem(equations: (newSecondEquation, newThirdEquation, nil))
-        let newSystemSolution = Self.solutionForTwoEquations(newSystem, using: .gauss)
+        let newSystemSolution = Self.solutionForTwoEquations(newSystem, using: .gauss, invertSigns: false)
 
         let newSystemSolutionX = newSystemSolution.xTerm
         let newSystemSolutionY = newSystemSolution.yTerm
@@ -129,7 +129,7 @@ enum SystemSolver {
         // swiftlint:disable:next line_length
         let systemSolutionX = (firstEquation.nTerm - (firstEquation.yTerm * newSystemSolutionX) - (firstZ * newSystemSolutionY)) / firstEquation.xTerm
 
-        return LinearSystem.Solution(xTerm: systemSolutionX, yTerm: newSystemSolutionX, zTerm: newSystemSolutionY)
+        return LinearSystem.Solution(xTerm: systemSolutionX, yTerm: newSystemSolutionX, zTerm: newSystemSolutionY, invertSigns: true)
     }
 
     // swiftlint:disable:next function_body_length
@@ -193,7 +193,7 @@ enum SystemSolver {
         let solutionY = dY / d
         let solutionZ = dZ / d
 
-        return LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY, zTerm: solutionZ)
+        return LinearSystem.Solution(xTerm: solutionX, yTerm: solutionY, zTerm: solutionZ, invertSigns: true)
     }
 
     /// The method that is going to be used to solve a linear system.
