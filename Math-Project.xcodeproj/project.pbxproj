@@ -215,13 +215,13 @@
 		6C30204026D4F96600CA653E /* Math-Project */ = {
 			isa = PBXGroup;
 			children = (
+				6C23D68E27F8768400A03CA0 /* Math-Project.entitlements */,
 				6C30204126D4F96600CA653E /* Math_ProjectApp.swift */,
 				6C30204326D4F96600CA653E /* ContentView.swift */,
 				6C30204F26D4FA4A00CA653E /* Activities */,
 				6C9081A127F9C8EE00E263ED /* Localization */,
 				6CCC578126D7E3A500C02F3E /* Components */,
 				6C30205D26D502D100CA653E /* Extensions */,
-				6C42BE7C28019087003E82A8 /* Configuration */,
 				6C30205926D5018900CA653E /* Assetss.xcassets */,
 				6C30204726D4F96700CA653E /* Preview Content */,
 			);
@@ -301,14 +301,6 @@
 				6C9081AA27F9CC9800E263ED /* CalculatorButton.swift */,
 			);
 			path = Calculator;
-			sourceTree = "<group>";
-		};
-		6C42BE7C28019087003E82A8 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				6C23D68E27F8768400A03CA0 /* Math-Project.entitlements */,
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		6C73CCDE27037374000C12DC /* Navigation */ = {
@@ -664,7 +656,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Math-Project/Configuration/Math-Project.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Math-Project/Math-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Math-Project/Preview Content\"";
@@ -699,7 +691,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Math-Project/Configuration/Math-Project.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Math-Project/Math-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Math-Project/Preview Content\"";
