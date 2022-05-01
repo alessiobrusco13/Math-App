@@ -35,7 +35,7 @@ public struct CalculatorButton: View, Identifiable {
                 .fill(color)
                 .overlay {
                     content
-                    .font(.title)
+                        .font(.title.weight(.semibold))
                     .foregroundColor(textColor)
 
                 }
@@ -48,9 +48,10 @@ public struct CalculatorButton: View, Identifiable {
     var content: some View {
         if let systemImage = systemImage {
             Image(systemName: systemImage)
+        } else if text == "FRACTION" {
+            FractionView.icon
         } else {
             Text(text)
-                .fontWeight(.semibold)
         }
     }
 

@@ -73,9 +73,12 @@
 		6CE3514F26FF71BB00911C5B /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3514E26FF71BB00911C5B /* ContinueButton.swift */; };
 		6CE3515126FF778600911C5B /* EquationPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3515026FF778600911C5B /* EquationPosition.swift */; };
 		6CF4725F26D7D8BC00B11ABC /* RecentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF4725E26D7D8BC00B11ABC /* RecentsView.swift */; };
-		6CF4726326D7DE2C00B11ABC /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF4726226D7DE2C00B11ABC /* Equation.swift */; };
+		6CF4726326D7DE2C00B11ABC /* LinearSystemEquation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF4726226D7DE2C00B11ABC /* LinearSystemEquation.swift */; };
 		6CF4726526D7DE7100B11ABC /* LinearSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF4726426D7DE7100B11ABC /* LinearSystem.swift */; };
 		892854D3281DCA48000FB784 /* MathParser in Frameworks */ = {isa = PBXBuildFile; productRef = 892854D2281DCA48000FB784 /* MathParser */; };
+		892854D5281DCE32000FB784 /* OperatorSet-default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892854D4281DCE32000FB784 /* OperatorSet-default.swift */; };
+		892854D8281DD342000FB784 /* FractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892854D7281DD342000FB784 /* FractionView.swift */; };
+		89C4DD9E281E901E000E9663 /* FractionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4DD9D281E901E000E9663 /* FractionIcon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,8 +151,11 @@
 		6CE3514E26FF71BB00911C5B /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		6CE3515026FF778600911C5B /* EquationPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationPosition.swift; sourceTree = "<group>"; };
 		6CF4725E26D7D8BC00B11ABC /* RecentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsView.swift; sourceTree = "<group>"; };
-		6CF4726226D7DE2C00B11ABC /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
+		6CF4726226D7DE2C00B11ABC /* LinearSystemEquation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearSystemEquation.swift; sourceTree = "<group>"; };
 		6CF4726426D7DE7100B11ABC /* LinearSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearSystem.swift; sourceTree = "<group>"; };
+		892854D4281DCE32000FB784 /* OperatorSet-default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperatorSet-default.swift"; sourceTree = "<group>"; };
+		892854D7281DD342000FB784 /* FractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionView.swift; sourceTree = "<group>"; };
+		89C4DD9D281E901E000E9663 /* FractionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionIcon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,9 +185,6 @@
 		6C23A69627E70CD000E5E294 /* Equations */ = {
 			isa = PBXGroup;
 			children = (
-				6C09D81A27E73DF4008E4F16 /* Monomial.swift */,
-				6C09D81C27E73E00008E4F16 /* Variable.swift */,
-				6C09D82327E74D36008E4F16 /* Rational.swift */,
 			);
 			path = Equations;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				6C30204F26D4FA4A00CA653E /* Activities */,
 				6C9081A127F9C8EE00E263ED /* Localization */,
 				6CCC578126D7E3A500C02F3E /* Components */,
+				892854D6281DD28C000FB784 /* Solvers */,
 				6C30205D26D502D100CA653E /* Extensions */,
 				6C30205926D5018900CA653E /* Assetss.xcassets */,
 				6C30204726D4F96700CA653E /* Preview Content */,
@@ -279,6 +283,7 @@
 				6C09D82227E73FE4008E4F16 /* Equations */,
 				6C94339A27EF8868002A8472 /* Animation-Card.swift */,
 				6C9081AC27F9CFB400E263ED /* Color-Calculator.swift */,
+				892854D4281DCE32000FB784 /* OperatorSet-default.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				6C42BE832801CC29003E82A8 /* ResultView.swift */,
 				6C42BE812801C8B0003E82A8 /* MultiplyView.swift */,
 				6C9081AA27F9CC9800E263ED /* CalculatorButton.swift */,
+				89C4DD9D281E901E000E9663 /* FractionIcon.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -347,9 +353,6 @@
 				6C39F7A82737EEA700BA5E6F /* LinearSystemView.swift */,
 				6C6D23E6274E7ED3003E4AAD /* SystemSolutionView.swift */,
 				6C6D23E8274E7EE9003E4AAD /* SystemSolutionViewModel.swift */,
-				6CF4726426D7DE7100B11ABC /* LinearSystem.swift */,
-				6CCC576726D7E1F600C02F3E /* SystemSolver.swift */,
-				6CF4726226D7DE2C00B11ABC /* Equation.swift */,
 				6CCC578226D7E3B700C02F3E /* EquationTermTextField.swift */,
 				6CC9966226DE9CBE00EE9CF7 /* EquationTextFields.swift */,
 				6C0E5A3F26DE94C40020A38F /* SystemEquationView.swift */,
@@ -364,6 +367,7 @@
 				6C40F278272D505F00C1E018 /* Card */,
 				6CA40282274ECF43004501F9 /* ModalSheet */,
 				6CACB8702733D92300DCAFE9 /* SquishableButtonStyle.swift */,
+				892854D7281DD342000FB784 /* FractionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -374,6 +378,19 @@
 				6CF4725E26D7D8BC00B11ABC /* RecentsView.swift */,
 			);
 			path = Recents;
+			sourceTree = "<group>";
+		};
+		892854D6281DD28C000FB784 /* Solvers */ = {
+			isa = PBXGroup;
+			children = (
+				6C09D81A27E73DF4008E4F16 /* Monomial.swift */,
+				6C09D81C27E73E00008E4F16 /* Variable.swift */,
+				6C09D82327E74D36008E4F16 /* Rational.swift */,
+				6CF4726426D7DE7100B11ABC /* LinearSystem.swift */,
+				6CCC576726D7E1F600C02F3E /* SystemSolver.swift */,
+				6CF4726226D7DE2C00B11ABC /* LinearSystemEquation.swift */,
+			);
+			path = Solvers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +475,7 @@
 				6C1F502B26E2898700C3381F /* CreateLinearSystemView.swift in Sources */,
 				6C09D81527E735F6008E4F16 /* GraphViewRegular.swift in Sources */,
 				6CE3514F26FF71BB00911C5B /* ContinueButton.swift in Sources */,
+				89C4DD9E281E901E000E9663 /* FractionIcon.swift in Sources */,
 				6C09D81127E7349A008E4F16 /* GraphView.swift in Sources */,
 				6C9081AB27F9CC9800E263ED /* CalculatorButton.swift in Sources */,
 				6C1F502D26E289AC00C3381F /* CreateSystemEquationView.swift in Sources */,
@@ -485,8 +503,9 @@
 				6C40F27C272D554600C1E018 /* CalculatorView.swift in Sources */,
 				6C317EB12788528E00F97600 /* Font-Equation.swift in Sources */,
 				6C09D81927E73C85008E4F16 /* GraphEquation.swift in Sources */,
+				892854D8281DD342000FB784 /* FractionView.swift in Sources */,
 				6C40F27E272D57B600C1E018 /* CardModifier.swift in Sources */,
-				6CF4726326D7DE2C00B11ABC /* Equation.swift in Sources */,
+				6CF4726326D7DE2C00B11ABC /* LinearSystemEquation.swift in Sources */,
 				6CCC578526D7E3B700C02F3E /* EquationTermTextField.swift in Sources */,
 				6CA40288274ED3C5004501F9 /* UIView-PinToEdges.swift in Sources */,
 				6C73CCDD27035DAC000C12DC /* GridToolsView.swift in Sources */,
@@ -518,6 +537,7 @@
 				6C23A69B27E71F2C00E5E294 /* InfoButton.swift in Sources */,
 				6CE3515126FF778600911C5B /* EquationPosition.swift in Sources */,
 				6C42BE802801B932003E82A8 /* OperationView.swift in Sources */,
+				892854D5281DCE32000FB784 /* OperatorSet-default.swift in Sources */,
 				6C09D81D27E73E00008E4F16 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

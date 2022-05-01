@@ -19,6 +19,7 @@ struct CalculatorView: View {
                         .padding()
 
                     OperationView(calculator: calculator)
+//                    FractionView(rational: Rational(approximating: 0.75))
                         .padding(.horizontal)
                         .offset(y: -80)
                 }

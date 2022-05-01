@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MathParser
 import SwiftUI
 
 class Calculator: ObservableObject {
@@ -20,15 +21,23 @@ class Calculator: ObservableObject {
     }
 
     @Published var currentResult = ""
-
     @Published var isClear = true
 
     var proxy: GeometryProxy?
 
+    private let evaluator = Evaluator()
+    private var configuration: Configuration
+
+    init() {
+        var config = Configuration()
+        config.operatorSet = .main
+        configuration = config
+    }
+
     func buttons(proxy: GeometryProxy) -> [[CalculatorButton]] { [
         [
             CalculatorButton(text: isClear ? "AC" : "C", action: clear, type: .utility, calculator: self),
-            CalculatorButton(systemImage: "plus.forwardslash.minus", action: toggleMinus, type: .utility, calculator: self),
+            CalculatorButton(text: "FRACTION", action: toggleMinus, type: .utility, calculator: self),
             CalculatorButton(systemImage: "percent", action: operatorAction, type: .utility, calculator: self),
             CalculatorButton(systemImage: "divide", action: operatorAction, type: .accent, calculator: self)
         ],
@@ -57,7 +66,7 @@ class Calculator: ObservableObject {
         [
             CalculatorButton(text: "0", action: numberAction, type: .standard, doubleWidth: true, calculator: self),
             CalculatorButton(text: ".", action: numberAction, type: .standard, calculator: self),
-            CalculatorButton(systemImage: "equal", action: operatorAction, type: .accent, calculator: self)
+            CalculatorButton(systemImage: "equal", action: execute, type: .accent, calculator: self)
         ]
     ] }
 
@@ -95,5 +104,14 @@ class Calculator: ObservableObject {
 
     func backSpace() {
         
+    }
+
+    func execute(_ input: String) {
+        do {
+            let expression = try Expression(string: currentOperation.joined(separator: " "), configuration: configuration)
+            currentResult = try evaluator.evaluate(expression).formatted()
+        } catch {
+            currentResult = "ERROR"
+        }
     }
 }
