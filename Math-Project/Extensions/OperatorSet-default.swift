@@ -15,9 +15,7 @@ extension OperatorSet {
         opSet.addTokens(["~divide~"], forOperator: Operator(builtInOperator: .divide))
         opSet.addTokens(["~multiply~"], forOperator: Operator(builtInOperator: .multiply))
         opSet.addTokens(["~minus~"], forOperator: Operator(builtInOperator: .minus))
-        opSet.addTokens(["~minus~"], forOperator: Operator(builtInOperator: .unaryMinus))
         opSet.addTokens(["~plus~"], forOperator: Operator(builtInOperator: .add))
-        opSet.addTokens(["~plus~"], forOperator: Operator(builtInOperator: .unaryPlus))
         opSet.addTokens(["~equal~"], forOperator: Operator(builtInOperator: .logicalEqual))
 
         return opSet

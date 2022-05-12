@@ -16,13 +16,20 @@ public struct CalculatorButton: View, Identifiable {
         case standard, utility, accent
     }
 
+    enum CustomIcon: String {
+        case fraction = "fraction"
+    }
+
     @Environment(\.colorScheme) private var colorScheme
 
     @ObservedObject var calculator: Calculator
 
     public let id = UUID()
+
     let text: String
     let systemImage: String?
+    let customIcon: CustomIcon?
+
     let action: (String) -> Void
     let type: ButtonType
     let doubleWidth: Bool
@@ -48,8 +55,8 @@ public struct CalculatorButton: View, Identifiable {
     var content: some View {
         if let systemImage = systemImage {
             Image(systemName: systemImage)
-        } else if text == "FRACTION" {
-            FractionView.icon
+        } else if let customIcon = customIcon {
+            CustomIconView(customIcon: customIcon)
         } else {
             Text(text)
         }
@@ -68,6 +75,7 @@ public struct CalculatorButton: View, Identifiable {
         self.doubleWidth = doubleWidth
         self.calculator = calculator
         systemImage = nil
+        customIcon = nil
     }
 
     init(
@@ -82,7 +90,24 @@ public struct CalculatorButton: View, Identifiable {
         self.type = type
         self.doubleWidth = doubleWidth
         self.calculator = calculator
-        text = "~\(systemImage)~"
+        text = systemImage.asOperator()
+        customIcon = nil
+    }
+
+    init(
+        customIcon: CustomIcon,
+        action: @escaping (String) -> Void,
+        type: ButtonType,
+        doubleWidth: Bool = false,
+        calculator: Calculator
+    ) {
+        self.customIcon = customIcon
+        self.action = action
+        self.type = type
+        self.doubleWidth = doubleWidth
+        self.calculator = calculator
+        text = "´\(customIcon.rawValue)´"
+        systemImage = nil
     }
 
     var buttonWidth: Double {

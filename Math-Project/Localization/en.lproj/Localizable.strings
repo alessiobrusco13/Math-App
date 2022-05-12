@@ -59,6 +59,14 @@
 
 "Calculator" = "Calculator";
 
+"Fraction" = "Fraction";
+
+"FRACTION" = "FRACTION";
+
+"Decimal" = "Decimal";
+
+"DECIMAL" = "DECIMAL";
+
 
 /* EQUATION SOLVER */
 

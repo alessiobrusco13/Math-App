@@ -7,30 +7,73 @@
 
 import SwiftUI
 
+extension Character {
+    fileprivate var isImageTag: Bool {
+        (self == "~") ? true : false
+    }
+
+    fileprivate var isViewTag: Bool {
+        (self == "´") ? true : false
+    }
+
+    fileprivate var isTag: Bool {
+        guard isImageTag || isViewTag else { return false }
+        return true
+    }
+}
+
 extension String {
     fileprivate var id: UUID { UUID() }
 
-    fileprivate var isImage: Bool {
-        guard let first = first, let last = last else { return false }
-
-        if first == "~" && last == "~" {
-            return true
+    fileprivate func removeTags() -> String {
+        guard let first = first, let last = last,
+              first.isTag, last.isTag
+        else {
+            return self
         }
 
-        return false
-    }
-
-    fileprivate func systemImageName() -> String {
         var copy = self
         copy.removeFirst()
         copy.removeLast()
 
-        if copy == "multiply" {
+        return copy
+    }
+
+    fileprivate var isImage: Bool {
+        guard let first = first, let last = last else { return false }
+        guard first.isImageTag && last.isImageTag else { return false }
+        return true
+    }
+
+    fileprivate var isView: Bool {
+        guard let first = first, let last = last else { return false }
+        guard first.isViewTag && last.isViewTag else { return false }
+        return true
+    }
+
+    fileprivate func systemImageName() -> String {
+        let noTags = removeTags()
+
+        if noTags == "multiply" {
             return "circle.fill"
         }
 
-        return copy
+        return noTags
     }
+
+    @ViewBuilder
+    fileprivate func view() -> some View {
+        let noTags = removeTags()
+
+        switch noTags {
+        case "fraction":
+            fatalError()
+
+        default:
+            fatalError()
+        }
+    }
+
 }
 
 struct OperationView: View {
@@ -63,7 +106,7 @@ struct OperationView: View {
                     .font(font.bold())
             }
         } else {
-            Text(Double(str) ?? 0, format: .number)
+            Text(str)
                 .fontWeight(.semibold)
                 .font(font)
         }

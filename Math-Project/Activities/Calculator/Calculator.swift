@@ -22,6 +22,7 @@ class Calculator: ObservableObject {
 
     @Published var currentResult = ""
     @Published var isClear = true
+    @Published var fractionResults = false
 
     var proxy: GeometryProxy?
 
@@ -37,7 +38,7 @@ class Calculator: ObservableObject {
     func buttons(proxy: GeometryProxy) -> [[CalculatorButton]] { [
         [
             CalculatorButton(text: isClear ? "AC" : "C", action: clear, type: .utility, calculator: self),
-            CalculatorButton(text: "FRACTION", action: toggleMinus, type: .utility, calculator: self),
+            CalculatorButton(customIcon: .fraction, action: toggleMinus, type: .utility, calculator: self),
             CalculatorButton(systemImage: "percent", action: operatorAction, type: .utility, calculator: self),
             CalculatorButton(systemImage: "divide", action: operatorAction, type: .accent, calculator: self)
         ],
@@ -103,15 +104,15 @@ class Calculator: ObservableObject {
     }
 
     func backSpace() {
-        
+        currentOperation.removeLast()
     }
 
     func execute(_ input: String) {
         do {
-            let expression = try Expression(string: currentOperation.joined(separator: " "), configuration: configuration)
+            let expression = try Expression(string: currentOperation.joined(), configuration: configuration)
             currentResult = try evaluator.evaluate(expression).formatted()
         } catch {
-            currentResult = "ERROR"
+            print(error.localizedDescription)
         }
     }
 }

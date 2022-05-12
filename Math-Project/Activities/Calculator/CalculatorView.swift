@@ -19,7 +19,7 @@ struct CalculatorView: View {
                         .padding()
 
                     OperationView(calculator: calculator)
-//                    FractionView(rational: Rational(approximating: 0.75))
+                    //                    FractionView(rational: Rational(approximating: 0.75))
                         .padding(.horizontal)
                         .offset(y: -80)
                 }
@@ -43,6 +43,15 @@ struct CalculatorView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.bottom)
             .onAppear { calculator.proxy = proxy }
+        }
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ButtonToggle(isOn: $calculator.fractionResults) {
+                    Text("\u{00BE}")
+                        .font(.title3)
+                }
+            }
         }
     }
 }

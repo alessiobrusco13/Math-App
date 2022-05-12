@@ -78,7 +78,9 @@
 		892854D3281DCA48000FB784 /* MathParser in Frameworks */ = {isa = PBXBuildFile; productRef = 892854D2281DCA48000FB784 /* MathParser */; };
 		892854D5281DCE32000FB784 /* OperatorSet-default.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892854D4281DCE32000FB784 /* OperatorSet-default.swift */; };
 		892854D8281DD342000FB784 /* FractionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892854D7281DD342000FB784 /* FractionView.swift */; };
-		89C4DD9E281E901E000E9663 /* FractionIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4DD9D281E901E000E9663 /* FractionIcon.swift */; };
+		89C4DDA2281EA445000E9663 /* CustomIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4DDA1281EA445000E9663 /* CustomIconView.swift */; };
+		89C4DDA8281EB81B000E9663 /* ButtonToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C4DDA7281EB81B000E9663 /* ButtonToggle.swift */; };
+		89D3BB26281EC11B00AD54DE /* String-asOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D3BB25281EC11B00AD54DE /* String-asOperator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,7 +157,9 @@
 		6CF4726426D7DE7100B11ABC /* LinearSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearSystem.swift; sourceTree = "<group>"; };
 		892854D4281DCE32000FB784 /* OperatorSet-default.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OperatorSet-default.swift"; sourceTree = "<group>"; };
 		892854D7281DD342000FB784 /* FractionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionView.swift; sourceTree = "<group>"; };
-		89C4DD9D281E901E000E9663 /* FractionIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FractionIcon.swift; sourceTree = "<group>"; };
+		89C4DDA1281EA445000E9663 /* CustomIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIconView.swift; sourceTree = "<group>"; };
+		89C4DDA7281EB81B000E9663 /* ButtonToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonToggle.swift; sourceTree = "<group>"; };
+		89D3BB25281EC11B00AD54DE /* String-asOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-asOperator.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +288,7 @@
 				6C94339A27EF8868002A8472 /* Animation-Card.swift */,
 				6C9081AC27F9CFB400E263ED /* Color-Calculator.swift */,
 				892854D4281DCE32000FB784 /* OperatorSet-default.swift */,
+				89D3BB25281EC11B00AD54DE /* String-asOperator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -306,7 +311,7 @@
 				6C42BE832801CC29003E82A8 /* ResultView.swift */,
 				6C42BE812801C8B0003E82A8 /* MultiplyView.swift */,
 				6C9081AA27F9CC9800E263ED /* CalculatorButton.swift */,
-				89C4DD9D281E901E000E9663 /* FractionIcon.swift */,
+				89C4DDA1281EA445000E9663 /* CustomIconView.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				6CA40282274ECF43004501F9 /* ModalSheet */,
 				6CACB8702733D92300DCAFE9 /* SquishableButtonStyle.swift */,
 				892854D7281DD342000FB784 /* FractionView.swift */,
+				89C4DDA7281EB81B000E9663 /* ButtonToggle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -475,16 +481,17 @@
 				6C1F502B26E2898700C3381F /* CreateLinearSystemView.swift in Sources */,
 				6C09D81527E735F6008E4F16 /* GraphViewRegular.swift in Sources */,
 				6CE3514F26FF71BB00911C5B /* ContinueButton.swift in Sources */,
-				89C4DD9E281E901E000E9663 /* FractionIcon.swift in Sources */,
 				6C09D81127E7349A008E4F16 /* GraphView.swift in Sources */,
 				6C9081AB27F9CC9800E263ED /* CalculatorButton.swift in Sources */,
 				6C1F502D26E289AC00C3381F /* CreateSystemEquationView.swift in Sources */,
 				6C42BE842801CC29003E82A8 /* ResultView.swift in Sources */,
+				89C4DDA2281EA445000E9663 /* CustomIconView.swift in Sources */,
 				6C73CCE22703745F000C12DC /* AppSidebarNavigation.swift in Sources */,
 				6C28E8EA26D6E5C200EE575F /* SelectedView.swift in Sources */,
 				6C30204426D4F96600CA653E /* ContentView.swift in Sources */,
 				6C30205F26D502EE00CA653E /* LinearGradient-ColorInitializer.swift in Sources */,
 				6CA40286274ED0FF004501F9 /* ModalSheetLink.swift in Sources */,
+				89C4DDA8281EB81B000E9663 /* ButtonToggle.swift in Sources */,
 				6CF4725F26D7D8BC00B11ABC /* RecentsView.swift in Sources */,
 				6C94339D27EF8E37002A8472 /* SolveSystemButtons.swift in Sources */,
 				6CCC577626D7E33400C02F3E /* Color-SemanticColors.swift in Sources */,
@@ -538,6 +545,7 @@
 				6CE3515126FF778600911C5B /* EquationPosition.swift in Sources */,
 				6C42BE802801B932003E82A8 /* OperationView.swift in Sources */,
 				892854D5281DCE32000FB784 /* OperatorSet-default.swift in Sources */,
+				89D3BB26281EC11B00AD54DE /* String-asOperator.swift in Sources */,
 				6C09D81D27E73E00008E4F16 /* Variable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import SwiftUI
 struct ResultView: View {
     @ObservedObject var calculator: Calculator
     @ScaledMetric(relativeTo: .largeTitle) var size = 60
+    @State private var showingError = false
 
     var body: some View {
         HStack(spacing: 0) {
@@ -18,15 +19,32 @@ struct ResultView: View {
                     .scaleEffect(0.6)
             }
 
-            Text(formatted)
-                .lineLimit(1)
+            if calculator.fractionResults {
+                if result.denominator == 1 {
+                    Text(formatted)
+                        .lineLimit(1)
+                } else {
+                    FractionView(rational: abs(result), numberFont: .system(size: size / 2).bold(), fractFont: .system(size: size / 1.5))
+                }
+            } else {
+                Text(formatted)
+                    .lineLimit(1)
+            }
         }
         .font(.system(size: size).bold())
     }
 
+    var result: Rational {
+        if let double = Double(calculator.currentResult) {
+            return Rational(approximating: double)
+        } else {
+            return Rational(0)
+        }
+    }
+
     var formatted: String {
         if calculator.currentResult.isEmpty == false {
-            return abs(Double(calculator.currentResult) ?? 0).formatted()
+            return result.double.formatted()
         } else {
             return ""
         }

@@ -11,6 +11,10 @@ struct Rational: ExpressibleByIntegerLiteral {
     var numerator: Int
     var denominator: Int
 
+    var double: Double {
+        Double(numerator) / Double(denominator)
+    }
+
     var string: String {
         "\(numerator)/\(denominator)"
     }
@@ -66,4 +70,8 @@ struct Rational: ExpressibleByIntegerLiteral {
             over: denominator / divisor
         )
     }
+}
+
+func abs(_ rational: Rational) -> Rational {
+    Rational(abs(rational.numerator), over: abs(rational.denominator))
 }
