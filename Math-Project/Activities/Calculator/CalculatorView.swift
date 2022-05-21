@@ -26,7 +26,7 @@ struct CalculatorView: View {
 
                 Spacer()
 
-                ForEach(calculator.buttons(proxy: proxy)) { row in
+                ForEach(calculator.buttons) { row in
                     HStack {
                         ForEach(row) { button in
                             button

@@ -35,7 +35,7 @@ class Calculator: ObservableObject {
         configuration = config
     }
 
-    func buttons(proxy: GeometryProxy) -> [[CalculatorButton]] { [
+    var buttons: [[CalculatorButton]] { [
         [
             CalculatorButton(text: isClear ? "AC" : "C", action: clear, type: .utility, calculator: self),
             CalculatorButton(customIcon: .fraction, action: toggleMinus, type: .utility, calculator: self),

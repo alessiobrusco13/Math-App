@@ -42,7 +42,7 @@ public struct CalculatorButton: View, Identifiable {
                 .fill(color)
                 .overlay {
                     content
-                        .font(.title.weight(.semibold))
+                    .font(.title.weight(.semibold))
                     .foregroundColor(textColor)
 
                 }
